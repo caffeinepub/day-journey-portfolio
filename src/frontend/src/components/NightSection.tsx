@@ -90,7 +90,7 @@ export function NightSection() {
         <span
           className="eyebrow eyebrow-pill inline-block mb-10"
           style={{
-            color: "rgba(120, 170, 255, 0.9)",
+            color: "rgba(184,193,236,0.85)",
             background: "rgba(58, 134, 255, 0.12)",
             borderColor: "rgba(58, 134, 255, 0.2)",
           }}
@@ -103,12 +103,11 @@ export function NightSection() {
           <h2
             className="font-display font-bold"
             style={{
-              fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
+              fontSize: "clamp(2.2rem, 5.5vw, 4.8rem)",
               letterSpacing: "-0.03em",
               color: "#F5F7FA",
               lineHeight: 1.04,
               maxWidth: "820px",
-              textShadow: "0 2px 32px rgba(58, 134, 255, 0.18)",
             }}
           >
             I Don't Just Design.
@@ -169,7 +168,6 @@ export function NightSection() {
                   marginBottom: "1.75rem",
                   color: "#3A86FF",
                   lineHeight: 1,
-                  opacity: 0.9,
                 }}
               >
                 {card.icon}
@@ -205,7 +203,7 @@ export function NightSection() {
                 className="font-ui"
                 style={{
                   fontSize: "0.875rem",
-                  lineHeight: 1.65,
+                  lineHeight: 1.7,
                   color: "#B8C1EC",
                 }}
               >

@@ -12,17 +12,16 @@ export function Footer() {
     >
       <p
         className="font-ui text-sm"
-        style={{ color: "rgba(232, 240, 255, 0.3)", letterSpacing: "0.02em" }}
+        style={{ color: "rgba(184,193,236,0.45)", letterSpacing: "0.02em" }}
       >
-        © {year}. Built with{" "}
-        <span style={{ color: "#3A86FF", opacity: 0.7 }}>♥</span> using{" "}
+        © {year}. Built with <span style={{ color: "#3A86FF" }}>♥</span> using{" "}
         <a
           href={utm}
           target="_blank"
           rel="noopener noreferrer"
           data-ocid="nav.link"
           style={{
-            color: "rgba(58, 134, 255, 0.6)",
+            color: "rgba(58, 134, 255, 0.75)",
             textDecoration: "underline",
             textUnderlineOffset: "3px",
             transition: "color 0.2s ease",
@@ -32,7 +31,7 @@ export function Footer() {
           }}
           onMouseLeave={(e) => {
             (e.target as HTMLAnchorElement).style.color =
-              "rgba(58, 134, 255, 0.6)";
+              "rgba(58, 134, 255, 0.75)";
           }}
         >
           caffeine.ai

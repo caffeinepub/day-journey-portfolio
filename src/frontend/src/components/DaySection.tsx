@@ -121,7 +121,7 @@ export function DaySection() {
           <h2
             className="font-display font-bold heading-shadow-warm"
             style={{
-              fontSize: "clamp(2.2rem, 5.5vw, 5rem)",
+              fontSize: "clamp(2rem, 5vw, 4.2rem)",
               letterSpacing: "-0.03em",
               color: "#0a1a2e",
               lineHeight: 1.04,
@@ -132,7 +132,7 @@ export function DaySection() {
             <em
               style={{
                 fontStyle: "italic",
-                color: "rgba(10, 26, 46, 0.55)",
+                color: "rgba(10, 26, 46, 0.6)",
               }}
             >
               One System.
@@ -165,7 +165,7 @@ export function DaySection() {
                   fontSize: "1.75rem",
                   lineHeight: 1,
                   color: "#0a1a2e",
-                  opacity: 0.75,
+                  opacity: 0.8,
                   marginBottom: "1.75rem",
                 }}
               >
@@ -176,7 +176,8 @@ export function DaySection() {
               <h3
                 className="font-display font-bold"
                 style={{
-                  fontSize: "1.15rem",
+                  fontSize: "1.1rem",
+                  fontWeight: 600,
                   color: "#0a1a2e",
                   letterSpacing: "-0.015em",
                   lineHeight: 1.2,
@@ -202,8 +203,8 @@ export function DaySection() {
                 className="font-ui"
                 style={{
                   fontSize: "0.875rem",
-                  lineHeight: 1.65,
-                  color: "rgba(10, 26, 46, 0.55)",
+                  lineHeight: 1.7,
+                  color: "rgba(10, 26, 46, 0.62)",
                 }}
               >
                 {skill.description}

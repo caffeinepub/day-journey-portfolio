@@ -84,7 +84,7 @@ export function AuthoritySection() {
           <span
             className="eyebrow eyebrow-pill inline-block mb-6"
             style={{
-              color: "rgba(120,170,255,0.85)",
+              color: "rgba(184,193,236,0.8)",
               background: "rgba(58,134,255,0.1)",
               borderColor: "rgba(58,134,255,0.18)",
             }}
@@ -94,11 +94,10 @@ export function AuthoritySection() {
           <h2
             className="font-display font-bold"
             style={{
-              fontSize: "clamp(2rem, 5vw, 4rem)",
+              fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)",
               letterSpacing: "-0.03em",
               color: "#F5F7FA",
               lineHeight: 1.06,
-              textShadow: "0 2px 24px rgba(58,134,255,0.12)",
             }}
           >
             Why Brands Trust My Work
@@ -133,7 +132,7 @@ export function AuthoritySection() {
                   fontFamily: "'Playfair Display', Georgia, serif",
                   fontWeight: 700,
                   fontSize: "1.75rem",
-                  color: "rgba(58,134,255,0.2)",
+                  color: "rgba(58,134,255,0.25)",
                   lineHeight: 1,
                   marginBottom: "1.25rem",
                 }}
@@ -144,6 +143,7 @@ export function AuthoritySection() {
                 className="font-display font-semibold"
                 style={{
                   fontSize: "1.05rem",
+                  fontWeight: 600,
                   color: "#F5F7FA",
                   letterSpacing: "-0.01em",
                   lineHeight: 1.3,
@@ -165,7 +165,7 @@ export function AuthoritySection() {
                 className="font-ui"
                 style={{
                   fontSize: "0.875rem",
-                  lineHeight: 1.65,
+                  lineHeight: 1.7,
                   color: "#B8C1EC",
                 }}
               >

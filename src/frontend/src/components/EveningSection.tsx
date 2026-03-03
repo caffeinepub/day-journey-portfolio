@@ -223,7 +223,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             fontFamily: "'Playfair Display', Georgia, serif",
             fontWeight: 700,
             fontSize: "1.5rem",
-            color: `${project.accentColor}55`,
+            color: `${project.accentColor}44`,
             lineHeight: 1,
           }}
         >
@@ -264,7 +264,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         style={{
           fontSize: "0.78rem",
           fontWeight: 500,
-          color: "rgba(245,247,250,0.5)",
+          color: "rgba(184,193,236,0.65)",
           marginBottom: "1.1rem",
           letterSpacing: "0.02em",
         }}
@@ -301,8 +301,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <p
               style={{
                 fontSize: "0.82rem",
-                color: "rgba(245,247,250,0.72)",
-                lineHeight: 1.55,
+                color: "rgba(184,193,236,0.82)",
+                lineHeight: 1.65,
                 margin: 0,
               }}
             >
@@ -336,7 +336,7 @@ export function EveningSection() {
           <span
             className="eyebrow eyebrow-pill inline-block"
             style={{
-              color: "rgba(245,247,250,0.7)",
+              color: "rgba(184,193,236,0.75)",
               marginBottom: "1rem",
             }}
           >
@@ -346,12 +346,11 @@ export function EveningSection() {
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontWeight: 700,
-              fontSize: "clamp(2rem, 5.5vw, 4.5rem)",
+              fontSize: "clamp(1.9rem, 4.5vw, 3.8rem)",
               letterSpacing: "-0.03em",
               color: "#F5F7FA",
               lineHeight: 1.04,
               marginBottom: "0.6rem",
-              textShadow: "0 2px 20px rgba(58, 134, 255, 0.12)",
             }}
           >
             Six Projects. Measurable Impact.

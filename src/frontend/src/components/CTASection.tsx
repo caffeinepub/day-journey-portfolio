@@ -91,7 +91,7 @@ export function CTASection() {
     fontWeight: 600,
     letterSpacing: "0.15em",
     textTransform: "uppercase" as const,
-    color: "rgba(79, 140, 201, 0.85)",
+    color: "rgba(184,193,236,0.75)",
     fontFamily: "Cabinet Grotesk, Satoshi, system-ui, sans-serif",
   };
 
@@ -143,7 +143,7 @@ export function CTASection() {
         <span
           className="eyebrow eyebrow-pill inline-block mb-8"
           style={{
-            color: "rgba(120, 170, 255, 0.9)",
+            color: "rgba(184,193,236,0.85)",
             background: "rgba(58, 134, 255, 0.12)",
             borderColor: "rgba(58, 134, 255, 0.2)",
           }}
@@ -155,7 +155,7 @@ export function CTASection() {
         <h2
           className="font-display font-bold"
           style={{
-            fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
+            fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
             letterSpacing: "-0.03em",
             color: "#F5F7FA",
             lineHeight: 1.04,
@@ -350,7 +350,7 @@ export function CTASection() {
               onClick={() => setFormStatus("idle")}
               className="font-ui text-sm link-underline"
               style={{
-                color: "rgba(58, 134, 255, 0.7)",
+                color: "rgba(58, 134, 255, 0.85)",
                 background: "none",
                 border: "none",
                 cursor: "pointer",

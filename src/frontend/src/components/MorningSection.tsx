@@ -66,9 +66,9 @@ export function MorningSection() {
           transition={{ duration: 1.1, ease: EXPO_OUT, delay: 0.2 }}
           className="font-display font-bold heading-shadow-warm"
           style={{
-            fontSize: "clamp(3rem, 8.5vw, 8rem)",
+            fontSize: "clamp(2.8rem, 7vw, 6.5rem)",
             letterSpacing: "-0.03em",
-            lineHeight: 1.02,
+            lineHeight: 1.06,
             color: "#2d1f0e",
             maxWidth: "860px",
             marginBottom: "clamp(1.5rem, 3vw, 2rem)",
@@ -80,7 +80,7 @@ export function MorningSection() {
           <em
             style={{
               fontStyle: "italic",
-              color: "rgba(74, 53, 32, 0.75)",
+              color: "rgba(45, 31, 14, 0.65)",
             }}
           >
             Starts with an Idea.
@@ -97,7 +97,7 @@ export function MorningSection() {
             fontSize: "clamp(1rem, 1.8vw, 1.15rem)",
             fontWeight: 400,
             maxWidth: "500px",
-            color: "rgba(45, 31, 14, 0.7)",
+            color: "rgba(45, 31, 14, 0.72)",
             letterSpacing: "0.012em",
             marginBottom: "clamp(3rem, 6vw, 5rem)",
           }}

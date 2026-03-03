@@ -56,7 +56,7 @@ export function CelestialLayer({ scrollProgress }: CelestialLayerProps) {
           opacity: sunOpacity,
           willChange: "transform, opacity",
           transition: "opacity 0.3s ease",
-          filter: "drop-shadow(0 0 20px rgba(255, 200, 50, 0.8))",
+          filter: "drop-shadow(0 0 24px rgba(255, 200, 50, 0.9))",
         }}
       >
         <svg
@@ -76,11 +76,17 @@ export function CelestialLayer({ scrollProgress }: CelestialLayerProps) {
               <stop offset="100%" stopColor="#E87A1A" stopOpacity="0" />
             </radialGradient>
             <radialGradient id="sun-glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#FFE066" stopOpacity="0.5" />
+              <stop offset="0%" stopColor="#FFE066" stopOpacity="0.65" />
               <stop offset="60%" stopColor="#FFB347" stopOpacity="0.2" />
               <stop offset="100%" stopColor="#F9A826" stopOpacity="0" />
             </radialGradient>
+            <radialGradient id="sun-atmosphere" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(255,180,50,0.12)" />
+              <stop offset="100%" stopColor="rgba(255,180,50,0)" />
+            </radialGradient>
           </defs>
+          {/* Outer atmospheric ring */}
+          <circle cx="35" cy="35" r="34" fill="url(#sun-atmosphere)" />
           {/* Outer glow ring */}
           <circle cx="35" cy="35" r="35" fill="url(#sun-glow)" />
           {/* Main sun body */}
@@ -120,7 +126,13 @@ export function CelestialLayer({ scrollProgress }: CelestialLayerProps) {
               <stop offset="50%" stopColor="#C4D4F0" />
               <stop offset="100%" stopColor="#8AAAD8" />
             </radialGradient>
+            <radialGradient id="moon-halo" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stopColor="rgba(150,180,255,0.15)" />
+              <stop offset="100%" stopColor="rgba(150,180,255,0)" />
+            </radialGradient>
           </defs>
+          {/* Outer atmospheric halo */}
+          <circle cx="25" cy="25" r="34" fill="url(#moon-halo)" />
           {/* Moon disc */}
           <circle cx="25" cy="25" r="20" fill="url(#moon-body)" />
           {/* Crescent shadow — offset circle to carve out crescent shape */}

@@ -73,11 +73,11 @@ export function CTASection() {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "rgba(255, 255, 255, 0.05)",
-    border: "1px solid rgba(58, 134, 255, 0.2)",
+    background: "rgba(255, 255, 255, 0.03)",
+    border: "1px solid rgba(255,255,255,0.08)",
     borderRadius: "10px",
     padding: "14px 18px",
-    color: "#e8f0ff",
+    color: "#F5F7FA",
     fontSize: "0.95rem",
     fontFamily: "Satoshi, Cabinet Grotesk, system-ui, sans-serif",
     outline: "none",
@@ -91,7 +91,7 @@ export function CTASection() {
     fontWeight: 600,
     letterSpacing: "0.15em",
     textTransform: "uppercase" as const,
-    color: "rgba(58, 134, 255, 0.7)",
+    color: "rgba(79, 140, 201, 0.85)",
     fontFamily: "Cabinet Grotesk, Satoshi, system-ui, sans-serif",
   };
 
@@ -103,86 +103,68 @@ export function CTASection() {
     <section
       className="portfolio-section px-6 relative"
       style={{
-        minHeight: "100vh",
+        minHeight: "auto",
         paddingTop: "clamp(5rem, 11vh, 9rem)",
         paddingBottom: "clamp(5rem, 10vh, 8rem)",
-        animation: "cta-gradient-shift 6s ease-in-out infinite",
         backdropFilter: "blur(2px)",
       }}
     >
-      {/* Glow background effects — center blue orb */}
+      {/* Single centered radial glow — subtle atmospheric depth */}
       <div
         aria-hidden="true"
         style={{
           position: "absolute",
-          top: "30%",
+          top: "40%",
           left: "50%",
-          transform: "translateX(-50%)",
-          width: "700px",
-          height: "500px",
+          transform: "translate(-50%, -50%)",
+          width: "600px",
+          height: "400px",
           borderRadius: "50%",
           background:
-            "radial-gradient(ellipse, rgba(58, 134, 255, 0.1) 0%, transparent 70%)",
-          filter: "blur(60px)",
+            "radial-gradient(ellipse, rgba(58, 134, 255, 0.08) 0%, transparent 70%)",
+          filter: "blur(50px)",
           pointerEvents: "none",
           zIndex: 0,
         }}
       />
 
-      {/* Second atmospheric glow orb — bottom-left, blue-purple */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: "10%",
-          left: "-5%",
-          width: "480px",
-          height: "380px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse, rgba(100, 80, 255, 0.07) 0%, rgba(58, 134, 255, 0.04) 40%, transparent 70%)",
-          filter: "blur(55px)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
+      {/* Glass container wrapping entire form + heading */}
       <div
         ref={contentRef}
         className="reveal-card max-w-2xl mx-auto relative z-10"
+        style={{
+          background: "rgba(255,255,255,0.03)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "16px",
+          padding: "clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem)",
+        }}
       >
         {/* Eyebrow */}
         <span
-          className="eyebrow inline-block mb-8"
-          style={{ color: "rgba(58, 134, 255, 0.55)" }}
+          className="eyebrow eyebrow-pill inline-block mb-8"
+          style={{
+            color: "rgba(120, 170, 255, 0.9)",
+            background: "rgba(58, 134, 255, 0.12)",
+            borderColor: "rgba(58, 134, 255, 0.2)",
+          }}
         >
-          Start a Conversation
+          Let's Work Together
         </span>
 
-        {/* Headline — larger on desktop for cinematic finale */}
+        {/* Headline — clean, no gradient */}
         <h2
           className="font-display font-bold"
           style={{
             fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
             letterSpacing: "-0.03em",
-            color: "#e8f0ff",
+            color: "#F5F7FA",
             lineHeight: 1.04,
             marginBottom: "1rem",
           }}
         >
-          Ready to Build
+          Let's Build Something
           <br />
-          <span
-            style={{
-              background:
-                "linear-gradient(135deg, #4A9AFF 0%, #8B7AFF 60%, #C47AFF 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            Something That Performs?
-          </span>
+          That Performs.
         </h2>
 
         <p
@@ -190,14 +172,13 @@ export function CTASection() {
           style={{
             fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
             lineHeight: 1.7,
-            color: "rgba(232, 240, 255, 0.45)",
+            color: "#B8C1EC",
             fontWeight: 400,
             marginBottom: "clamp(2.5rem, 5vh, 4rem)",
           }}
         >
-          If you're serious about digital growth — design that converts, systems
-          that scale, and execution that delivers — let's talk. I take on select
-          projects where I can create real impact.
+          Have a project in mind? Let's create a solution that drives measurable
+          growth.
         </p>
 
         {/* Contact Form */}
@@ -218,12 +199,12 @@ export function CTASection() {
                 data-ocid="cta.input"
                 style={inputStyle}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.6)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.08)";
+                  e.target.style.borderColor = "rgba(58, 134, 255, 0.45)";
+                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.2)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.target.style.background = "rgba(255, 255, 255, 0.03)";
                 }}
               />
             </div>
@@ -243,12 +224,12 @@ export function CTASection() {
                 data-ocid="cta.email_input"
                 style={inputStyle}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.6)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.08)";
+                  e.target.style.borderColor = "rgba(58, 134, 255, 0.45)";
+                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.2)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.target.style.background = "rgba(255, 255, 255, 0.03)";
                 }}
               />
             </div>
@@ -272,12 +253,12 @@ export function CTASection() {
                   minHeight: "140px",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.6)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.08)";
+                  e.target.style.borderColor = "rgba(58, 134, 255, 0.45)";
+                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.2)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.target.style.background = "rgba(255, 255, 255, 0.03)";
                 }}
               />
             </div>
@@ -307,7 +288,7 @@ export function CTASection() {
               type="submit"
               disabled={isDisabled}
               data-ocid="cta.submit_button"
-              className="glow-btn w-full flex items-center justify-center gap-3 rounded-xl font-ui font-semibold transition-all"
+              className="glow-btn btn-lift w-full flex items-center justify-center gap-3 rounded-xl font-ui font-semibold"
               style={{
                 padding: "16px 32px",
                 fontSize: "1rem",
@@ -317,8 +298,6 @@ export function CTASection() {
                 border: "none",
                 cursor: isDisabled ? "not-allowed" : "pointer",
                 opacity: isDisabled ? 0.5 : 1,
-                boxShadow:
-                  "0 0 20px rgba(58, 134, 255, 0.4), 0 0 60px rgba(58, 134, 255, 0.15)",
               }}
             >
               {isLoading ? (
@@ -354,13 +333,13 @@ export function CTASection() {
             <div>
               <h3
                 className="font-display font-bold mb-3"
-                style={{ fontSize: "1.5rem", color: "#e8f0ff" }}
+                style={{ fontSize: "1.5rem", color: "#F5F7FA" }}
               >
                 Message Received
               </h3>
               <p
                 className="font-ui text-base leading-relaxed"
-                style={{ color: "rgba(232, 240, 255, 0.55)" }}
+                style={{ color: "#B8C1EC" }}
               >
                 Thank you for reaching out. I review every inquiry personally
                 and will respond within 24 hours.
@@ -369,14 +348,12 @@ export function CTASection() {
             <button
               type="button"
               onClick={() => setFormStatus("idle")}
-              className="font-ui text-sm"
+              className="font-ui text-sm link-underline"
               style={{
                 color: "rgba(58, 134, 255, 0.7)",
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                textDecoration: "underline",
-                textUnderlineOffset: "3px",
               }}
             >
               Send another message

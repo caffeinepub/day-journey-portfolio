@@ -12,42 +12,60 @@ const SKILLS: Skill[] = [
     icon: "◈",
     name: "Design Strategy",
     description:
-      "UI/UX interfaces, brand identity, visual systems, and marketing assets engineered to build trust and drive conversion — not just look good.",
+      "As a UI/UX Designer, I build interfaces that guide users toward action. Every layout, visual hierarchy, and interaction is engineered to convert — not just impress.",
     ocid: "skills.card.1",
   },
   {
     icon: "⬡",
     name: "Development Architecture",
     description:
-      "WordPress, WooCommerce, and Elementor ecosystems built for speed, scalability, and zero-friction user journeys — from responsive layout to production deployment.",
+      "WordPress Developer and WooCommerce Expert. I build scalable eCommerce systems — from product variation logic to checkout optimization — deployed for performance from day one.",
     ocid: "skills.card.2",
   },
   {
     icon: "◎",
     name: "SEO & Performance",
     description:
-      "On-page SEO, meta structure, keyword architecture, and speed optimization that compound over time — turning organic traffic into a sustainable growth channel.",
+      "SEO Optimization Specialist. I structure content, meta architecture, and Core Web Vitals to turn organic traffic into a compounding, sustainable revenue channel.",
     ocid: "skills.card.3",
   },
   {
     icon: "◉",
     name: "eCommerce Operations",
     description:
-      "Product systems, variation logic, conversion-focused layout structuring, and inventory management built to reduce friction and maximize cart value.",
+      "eCommerce Website Developer focused on conversion. Product management, pricing logic, inventory architecture — all built to reduce friction and increase average order value.",
     ocid: "skills.card.4",
   },
 ];
 
-// Fix 3: slower, more deliberate stagger — 100ms first, 90ms between each
+// Slower, more deliberate stagger — cards appear one-by-one
 const STAGGER_BASE_MS = 100;
-const STAGGER_INC_MS = 90;
+const STAGGER_INC_MS = 150;
 
 export function DaySection() {
+  const headerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
+    // Observe the header first — headline appears before cards
+    const headerEl = headerRef.current;
+    if (headerEl) {
+      const headerObserver = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            headerEl.classList.add("is-visible");
+            headerObserver.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+      headerObserver.observe(headerEl);
+      observers.push(headerObserver);
+    }
+
+    // Cards stagger after header
     for (let i = 0; i < cardRefs.current.length; i++) {
       const card = cardRefs.current[i];
       if (!card) continue;
@@ -89,18 +107,19 @@ export function DaySection() {
       <div className="max-w-6xl mx-auto">
         {/* ── Section header ───────────────────────────────────────── */}
         <div
-          className="mb-20 text-center"
-          style={{ maxWidth: "640px", margin: "0 auto 5rem auto" }}
+          ref={headerRef}
+          className="reveal-card text-center"
+          style={{ maxWidth: "640px", margin: "0 auto 4rem auto" }}
         >
+          {/* Frost pill for eyebrow on bright day sky */}
           <span
-            className="eyebrow inline-block mb-7"
-            style={{ color: "rgba(10, 26, 46, 0.45)" }}
+            className="eyebrow eyebrow-pill inline-block mb-6"
+            style={{ color: "rgba(10, 26, 46, 0.7)" }}
           >
-            Strategic Capabilities
+            Day — Capability
           </span>
-          {/* Fix 1: bigger display heading, tighter tracking */}
           <h2
-            className="font-display font-bold"
+            className="font-display font-bold heading-shadow-warm"
             style={{
               fontSize: "clamp(2.2rem, 5.5vw, 5rem)",
               letterSpacing: "-0.03em",
@@ -113,7 +132,7 @@ export function DaySection() {
             <em
               style={{
                 fontStyle: "italic",
-                color: "rgba(10, 26, 46, 0.5)",
+                color: "rgba(10, 26, 46, 0.55)",
               }}
             >
               One System.
@@ -135,9 +154,7 @@ export function DaySection() {
                 cardRefs.current[i] = el;
               }}
               data-ocid={skill.ocid}
-              /* Fix 2: glass-card now has hover state from CSS */
               className="reveal-card glass-card rounded-2xl p-8 cursor-default"
-              /* Fix 3: stagger delay baked into transition-delay */
               style={{
                 transitionDelay: `${STAGGER_BASE_MS + i * STAGGER_INC_MS}ms`,
               }}
@@ -195,100 +212,6 @@ export function DaySection() {
           ))}
         </div>
       </div>
-
-      {/* Background atmospheric orb */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "30%",
-          right: "-5%",
-          width: "420px",
-          height: "420px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(163, 213, 255, 0.35) 0%, transparent 70%)",
-          filter: "blur(70px)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
-      {/* ── Floating geometric shapes ─────────────────────────────── */}
-      {/* Shape 1: Thin outlined circle, top-right, slow float */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "12%",
-          right: "8%",
-          width: "80px",
-          height: "80px",
-          borderRadius: "50%",
-          border: "1.5px solid rgba(10, 26, 46, 0.12)",
-          pointerEvents: "none",
-          zIndex: 0,
-          animation: "shape-float 6s ease-in-out infinite",
-          ["--shape-base-transform" as string]: "translateY(0px)",
-          ["--shape-float-transform" as string]: "translateY(-12px)",
-        }}
-      />
-
-      {/* Shape 2: Small square rotated 45°, mid-left */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "48%",
-          left: "5%",
-          width: "40px",
-          height: "40px",
-          border: "1.5px solid rgba(10, 26, 46, 0.10)",
-          pointerEvents: "none",
-          zIndex: 0,
-          animation: "shape-float 8s 1.5s ease-in-out infinite",
-          ["--shape-base-transform" as string]: "rotate(45deg) translateY(0px)",
-          ["--shape-float-transform" as string]:
-            "rotate(45deg) translateY(-10px)",
-        }}
-      />
-
-      {/* Shape 3: Elongated thin rounded rect, mid-right */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          top: "62%",
-          right: "12%",
-          width: "120px",
-          height: "6px",
-          borderRadius: "3px",
-          background: "rgba(10, 26, 46, 0.08)",
-          pointerEvents: "none",
-          zIndex: 0,
-          animation: "shape-float 7s 0.8s ease-in-out infinite",
-          ["--shape-base-transform" as string]: "translateY(0px)",
-          ["--shape-float-transform" as string]: "translateY(-8px)",
-        }}
-      />
-
-      {/* Shape 4: Large transparent circle outline, bottom-left, slow rotation */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: "8%",
-          left: "3%",
-          width: "160px",
-          height: "160px",
-          borderRadius: "50%",
-          border: "1px solid rgba(10, 26, 46, 0.07)",
-          pointerEvents: "none",
-          zIndex: 0,
-          animation: "shape-rotate 22s linear infinite",
-          opacity: 0.8,
-        }}
-      />
     </section>
   );
 }

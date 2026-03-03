@@ -61,6 +61,10 @@ export function LandscapeLayer({ scrollProgress }: LandscapeLayerProps) {
           transition: "opacity 0.4s ease",
         }}
       >
+        {/* Foreground ground strip — very subtle dark base */}
+        <rect x="0" y="112" width="1440" height="8" fill="rgba(0,0,0,0.15)" />
+
+        {/* Primary foreground hill */}
         <path
           d="M0,120 
              C60,120 80,85 140,80 
@@ -75,19 +79,26 @@ export function LandscapeLayer({ scrollProgress }: LandscapeLayerProps) {
              L1440,120 Z"
           fill={`rgba(0, 0, 0, ${hillOpacity})`}
         />
-        {/* Secondary hill layer for depth */}
-        <path
-          d="M0,120 
-             C100,120 120,100 200,98 
-             C280,96 320,108 400,105 
-             C480,102 520,92 600,90 
-             C680,88 720,98 800,96 
-             C880,94 920,85 1000,84 
-             C1080,83 1120,92 1200,90 
-             C1280,88 1360,100 1440,102 
-             L1440,120 Z"
-          fill={`rgba(0, 0, 0, ${hillOpacity * 0.6})`}
-        />
+        {/* Secondary hill layer for depth — blurred background hill */}
+        <g
+          className="landscape-bg-layer"
+          style={{
+            transform: `translateY(${scrollProgress * -8}px)`,
+          }}
+        >
+          <path
+            d="M0,120 
+               C100,120 120,100 200,98 
+               C280,96 320,108 400,105 
+               C480,102 520,92 600,90 
+               C680,88 720,98 800,96 
+               C880,94 920,85 1000,84 
+               C1080,83 1120,92 1200,90 
+               C1280,88 1360,100 1440,102 
+               L1440,120 Z"
+            fill={`rgba(0, 0, 0, ${hillOpacity * 0.6})`}
+          />
+        </g>
       </svg>
 
       {/* ── City Skyline (evening/night) ─────────────────────────── */}
@@ -128,9 +139,12 @@ export function LandscapeLayer({ scrollProgress }: LandscapeLayerProps) {
           fill={skylineFill}
         />
 
-        {/* Window lights — only visible during night */}
+        {/* Window lights — only visible during night, subtle parallax */}
         {windowGlow > 0 && (
-          <g opacity={windowGlow * 0.7}>
+          <g
+            opacity={windowGlow * 0.7}
+            style={{ transform: `translateY(${scrollProgress * -4}px)` }}
+          >
             {/* Row of glowing windows across buildings */}
             {[
               [105, 82],

@@ -10,30 +10,30 @@ interface ValueCard {
 const VALUE_CARDS: ValueCard[] = [
   {
     icon: "⟡",
-    title: "Revenue-Focused Mindset",
+    title: "Revenue-Focused Design Thinking",
     description:
-      "Every design decision is evaluated against a single question: does this move the needle? Aesthetics serve business outcomes — not the other way around.",
+      "Every design decision is evaluated against one question: does this move the needle? Aesthetics serve business outcomes — not the other way around.",
     ocid: "night.card.1",
   },
   {
     icon: "◈",
     title: "Conversion Architecture",
     description:
-      "I build user journeys engineered for action. From landing page structure to checkout flow, every touchpoint is designed to reduce drop-off and increase conversion.",
+      "I engineer user journeys for action. From landing page structure to checkout flow optimization, every touchpoint reduces drop-off and increases conversion rate.",
     ocid: "night.card.2",
   },
   {
     icon: "◎",
-    title: "Performance Optimization",
+    title: "Performance & SEO Optimization",
     description:
-      "Speed is revenue. I optimize Core Web Vitals, image pipelines, and technical SEO to ensure your digital presence performs as well as it looks.",
+      "Speed is revenue. I optimize Core Web Vitals, image pipelines, and technical SEO — turning your digital presence into a compounding organic growth channel.",
     ocid: "night.card.3",
   },
   {
     icon: "⟢",
-    title: "Scalability Planning",
+    title: "Scalable Systems Thinking",
     description:
-      "Systems designed to grow without breaking. Every architecture decision accounts for your next 100 products, your next market, and your next phase of growth.",
+      "Every architecture decision accounts for your next 100 products, next market expansion, and next growth phase — built to scale without rebuilding from scratch.",
     ocid: "night.card.4",
   },
 ];
@@ -52,8 +52,8 @@ export function NightSection() {
     for (let i = 0; i < elements.length; i++) {
       const el = elements[i];
       const idx = i;
-      // Fix 3: stagger more deliberate — headline at 0ms, cards at 140ms intervals
-      const delay = idx === 0 ? 0 : 80 + (idx - 1) * 140;
+      // Headline gets 300ms scroll-pause delay, cards stagger after
+      const delay = idx === 0 ? 300 : 300 + idx * 150;
 
       const observer = new IntersectionObserver(
         (entries) => {
@@ -86,32 +86,36 @@ export function NightSection() {
       }}
     >
       <div className="max-w-6xl mx-auto">
-        {/* Eyebrow */}
+        {/* Eyebrow — pill for legibility on dark sky photo */}
         <span
-          className="eyebrow inline-block mb-10"
-          style={{ color: "rgba(58, 134, 255, 0.65)" }}
+          className="eyebrow eyebrow-pill inline-block mb-10"
+          style={{
+            color: "rgba(120, 170, 255, 0.9)",
+            background: "rgba(58, 134, 255, 0.12)",
+            borderColor: "rgba(58, 134, 255, 0.2)",
+          }}
         >
-          Strategic Positioning
+          Night — Authority
         </span>
 
-        {/* ── Headline — Fix 1: monumental scale ────────────────────── */}
-        <div ref={headlineRef} className="reveal-card mb-28">
+        {/* ── Headline — scroll-pause reveal ─────────────────────── */}
+        <div ref={headlineRef} className="reveal-card mb-24">
           <h2
             className="font-display font-bold"
             style={{
               fontSize: "clamp(2.4rem, 6vw, 5.5rem)",
               letterSpacing: "-0.03em",
-              color: "#e8f0ff",
+              color: "#F5F7FA",
               lineHeight: 1.04,
               maxWidth: "820px",
+              textShadow: "0 2px 32px rgba(58, 134, 255, 0.18)",
             }}
           >
             I Don't Just Design.
             <br />
             <span
               style={{
-                background:
-                  "linear-gradient(135deg, #3A86FF 0%, #7EB8FF 45%, #B89AFF 100%)",
+                background: "linear-gradient(135deg, #3A86FF 0%, #4F8CC9 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -121,25 +125,25 @@ export function NightSection() {
             </span>
           </h2>
 
-          {/* Fix 1: subtitle has more breathing room */}
           <p
             className="font-ui"
             style={{
               marginTop: "2rem",
               fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
               lineHeight: 1.7,
-              color: "rgba(232, 240, 255, 0.48)",
-              maxWidth: "440px",
+              color: "#B8C1EC",
+              maxWidth: "540px",
               fontWeight: 400,
             }}
           >
-            Every project is a revenue system. I approach design, development,
-            and optimization as interconnected levers — each one calibrated to
-            drive profit, reduce friction, and scale without limits.
+            Every project is a revenue system. As a UI/UX Designer, WordPress
+            Developer, and eCommerce specialist, I approach design, development,
+            and optimization as interconnected levers — each calibrated to drive
+            profit, reduce friction, and scale.
           </p>
         </div>
 
-        {/* ── Value cards — Fix 2: glass-card-dark hover from CSS ─── */}
+        {/* ── Value cards ────────────────────────────────────────── */}
         <div
           className="grid gap-5"
           style={{
@@ -153,10 +157,9 @@ export function NightSection() {
                 cardRefs.current[i] = el;
               }}
               data-ocid={card.ocid}
-              className="reveal-card glass-card-dark rounded-2xl p-8"
+              className="reveal-card glass-card-dark card-lift rounded-2xl p-8"
               style={{
-                /* Fix 3: stagger via transitionDelay */
-                transitionDelay: `${80 + i * 140}ms`,
+                transitionDelay: `${300 + (i + 1) * 150}ms`,
               }}
             >
               {/* Icon */}
@@ -177,7 +180,7 @@ export function NightSection() {
                 className="font-display font-semibold"
                 style={{
                   fontSize: "1.1rem",
-                  color: "#e8f0ff",
+                  color: "#F5F7FA",
                   letterSpacing: "-0.01em",
                   lineHeight: 1.25,
                   marginBottom: "0.5rem",
@@ -203,7 +206,7 @@ export function NightSection() {
                 style={{
                   fontSize: "0.875rem",
                   lineHeight: 1.65,
-                  color: "rgba(232, 240, 255, 0.48)",
+                  color: "#B8C1EC",
                 }}
               >
                 {card.description}

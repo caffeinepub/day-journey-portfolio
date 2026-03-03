@@ -92,6 +92,15 @@
     --color-night-text: #e8f0ff;
     --color-silhouette: #1a1a2e;
 
+    /* Professional color system */
+    --color-primary-dark: #0B132B;
+    --color-secondary-dark: #1C2541;
+    --color-accent-blue-pro: #3A86FF;
+    --color-soft-blue: #4F8CC9;
+    --color-heading: #F5F7FA;
+    --color-paragraph: #B8C1EC;
+    --color-border-subtle: rgba(255,255,255,0.08);
+
     /* ─── Motion curves ─────────────────────────────────────────── */
     /* Expo.Out — the Apple motion curve: decisive drop into rest */
     --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -306,14 +315,10 @@
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  border-top:    1px solid rgba(58, 134, 255, 0.28);
-  border-left:   1px solid rgba(58, 134, 255, 0.18);
-  border-right:  1px solid rgba(58, 134, 255, 0.10);
-  border-bottom: 1px solid rgba(58, 134, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.3),
-    0 0 0 0px rgba(58, 134, 255, 0),
-    inset 0 1px 0 rgba(58, 134, 255, 0.15);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
   transition:
     transform 0.4s var(--ease-expo-out),
     box-shadow 0.4s var(--ease-expo-out),
@@ -323,43 +328,143 @@
 }
 
 .glass-card-dark:hover {
-  transform: translateY(-5px);
+  transform: translateY(-5px) scale(1.015);
   background: rgba(58, 134, 255, 0.06);
-  border-top:    1px solid rgba(58, 134, 255, 0.5);
-  border-left:   1px solid rgba(58, 134, 255, 0.35);
-  border-right:  1px solid rgba(58, 134, 255, 0.2);
-  border-bottom: 1px solid rgba(58, 134, 255, 0.15);
+  border-color: rgba(58, 134, 255, 0.25);
   box-shadow:
     0 8px 40px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(58, 134, 255, 0.12),
-    0 0 48px rgba(58, 134, 255, 0.08),
-    inset 0 1px 0 rgba(58, 134, 255, 0.3);
+    0 0 48px rgba(58, 134, 255, 0.07),
+    inset 0 1px 0 rgba(58, 134, 255, 0.18);
 }
 
 /* ─── Glow button ───────────────────────────────────────────────── */
 .glow-btn {
-  animation: float-glow 2.5s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(58, 134, 255, 0.25), 0 0 60px rgba(58, 134, 255, 0.08);
   transition:
-    transform 0.3s var(--ease-expo-out),
-    box-shadow 0.3s var(--ease-expo-out);
+    transform 0.25s var(--ease-expo-out),
+    box-shadow 0.25s var(--ease-expo-out);
 }
 
 .glow-btn:hover {
-  transform: translateY(-3px);
-  box-shadow:
-    0 0 50px rgba(58, 134, 255, 0.85),
-    0 0 100px rgba(58, 134, 255, 0.4) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(58, 134, 255, 0.45) !important;
 }
 
 .glow-btn:active {
   transform: translateY(-1px);
 }
 
+/* ─── Sky layer utilities ───────────────────────────────────────── */
+.sky-layer {
+  position: fixed;
+  inset: 0;
+  background-size: cover;
+  background-position: center top;
+  will-change: opacity;
+  transition: opacity 0.1s linear;
+  pointer-events: none;
+}
+
+.atmos-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  will-change: opacity;
+}
+
 /* ─── Section base ──────────────────────────────────────────────── */
 .portfolio-section {
   position: relative;
-  z-index: 1;
+  z-index: 20;
   min-height: 100vh;
+}
+
+/* ─── Reveal stagger delays ─────────────────────────────────────── */
+.reveal-stagger-1 { transition-delay: 0ms; }
+.reveal-stagger-2 { transition-delay: 120ms; }
+.reveal-stagger-3 { transition-delay: 240ms; }
+.reveal-stagger-4 { transition-delay: 360ms; }
+.reveal-stagger-5 { transition-delay: 480ms; }
+.reveal-stagger-6 { transition-delay: 600ms; }
+
+/* ─── Project image ─────────────────────────────────────────────── */
+.project-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.project-img-wrap {
+  overflow: hidden;
+  border-radius: 13px 13px 0 0;
+  /* Negative margin matches max card padding (1.75rem) precisely */
+  margin: -1.75rem -1.75rem 1.5rem -1.75rem;
+  position: relative;
+  /* Accent shimmer overlay rendered here instead of absolute card div */
+  flex-shrink: 0;
+}
+/* Soft gradient scrim at bottom of image — eases image-to-text transition */
+.project-img-wrap::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: linear-gradient(to bottom, transparent 0%, rgba(30, 14, 4, 0.38) 100%);
+  pointer-events: none;
+}
+.project-img-wrap:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* ─── Project card legibility frost ─────────────────────────────── */
+.project-card-frost {
+  background: rgba(255, 248, 236, 0.10);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+/* ─── Section content legibility frost ──────────────────────────── */
+/* Applied to inner content wrappers — barely-there frost that lifts text
+   off the photographic sky without creating a visible box.
+   Light phases (morning, day) use a warm-white frost.
+   Dark phases (evening, night) use a deep-navy frost. */
+.section-frost-light {
+  background: rgba(255, 252, 245, 0.06);
+  backdrop-filter: blur(10px) saturate(1.1);
+  -webkit-backdrop-filter: blur(10px) saturate(1.1);
+  border-radius: 24px;
+  /* Hairline border catches the light like frosted glass */
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.section-frost-dark {
+  background: rgba(5, 12, 28, 0.14);
+  backdrop-filter: blur(10px) saturate(1.15);
+  -webkit-backdrop-filter: blur(10px) saturate(1.15);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ─── Heading text shadow helpers ───────────────────────────────── */
+/* Light-phase headings (dark text on bright sky) — warm soft lift */
+.heading-shadow-warm {
+  text-shadow:
+    0 2px 24px rgba(255, 210, 120, 0.22),
+    0 1px 4px rgba(200, 130, 40, 0.08);
+}
+
+/* Eyebrow legibility pill — subtle pill bg on photo backgrounds */
+.eyebrow-pill {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 /* ─── Sticky project layout ─────────────────────────────────────── */
@@ -419,13 +524,13 @@
   left: 0;
   right: 0;
   pointer-events: none;
-  z-index: 2;
+  z-index: 4;
 }
 
 /* ─── New keyframe animations ────────────────────────────────────── */
 @keyframes twinkle {
   0%, 100% { opacity: var(--star-opacity, 0.8); transform: scale(1); }
-  50% { opacity: calc(var(--star-opacity, 0.8) * 0.3); transform: scale(0.7); }
+  50% { opacity: calc(var(--star-opacity, 0.8) * 0.45); transform: scale(0.85); }
 }
 
 @keyframes shape-float {
@@ -438,14 +543,78 @@
   to { transform: rotate(360deg); }
 }
 
-@keyframes cta-gradient-shift {
-  0%, 100% { background-color: rgba(13, 27, 42, 0.75); }
-  50% { background-color: rgba(8, 18, 35, 0.9); }
-}
+/* cta-gradient-shift removed — replaced with static background */
 
 @keyframes moon-glow-pulse {
   0%, 100% { filter: drop-shadow(0 0 16px rgba(120, 160, 255, 0.65)); }
   50% { filter: drop-shadow(0 0 28px rgba(120, 160, 255, 0.95)); }
+}
+
+/* ─── Micro-interaction utilities ───────────────────────────────── */
+.btn-lift {
+  transition: transform 0.25s var(--ease-expo-out), box-shadow 0.25s var(--ease-expo-out);
+}
+.btn-lift:hover {
+  transform: translateY(-2px);
+}
+
+.card-lift {
+  transition: transform 0.35s var(--ease-expo-out), box-shadow 0.35s var(--ease-expo-out);
+}
+.card-lift:hover {
+  transform: scale(1.015);
+}
+
+.link-underline {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+.link-underline:hover {
+  text-decoration-color: currentColor;
+}
+
+/* ─── Mobile section min-height fix ────────────────────────────── */
+@media (max-width: 768px) {
+  .portfolio-section {
+    min-height: auto;
+  }
+  .portfolio-section-hero {
+    min-height: 100svh;
+  }
+}
+
+/* ─── Authority section glass ───────────────────────────────────── */
+.glass-authority {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  transition: transform 0.35s var(--ease-expo-out), background 0.3s ease, border-color 0.3s ease;
+}
+.glass-authority:hover {
+  transform: translateY(-3px) scale(1.015);
+  background: rgba(58, 134, 255, 0.05);
+  border-color: rgba(58, 134, 255, 0.18);
+}
+
+/* ─── Parallax landscape utility ────────────────────────────────── */
+.landscape-bg-layer {
+  filter: blur(0.8px);
+}
+
+/* ─── Text color utilities ──────────────────────────────────────── */
+.text-paragraph { color: #B8C1EC; }
+.text-heading-night { color: #F5F7FA; }
+
+/* ─── Gradient text — blue only (no purple) ─────────────────────── */
+.gradient-text-blue {
+  background: linear-gradient(135deg, #3A86FF 0%, #4F8CC9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ─── Scrollbar customization ───────────────────────────────────── */

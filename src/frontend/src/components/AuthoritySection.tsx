@@ -84,9 +84,9 @@ export function AuthoritySection() {
           <span
             className="eyebrow eyebrow-pill inline-block mb-6"
             style={{
-              color: "rgba(184,193,236,0.8)",
-              background: "rgba(58,134,255,0.1)",
-              borderColor: "rgba(58,134,255,0.18)",
+              color: "rgba(26,26,46,0.8)",
+              background: "rgba(40,54,24,0.5)",
+              borderColor: "rgba(221,161,94,0.18)",
             }}
           >
             Trust & Credibility
@@ -96,7 +96,7 @@ export function AuthoritySection() {
             style={{
               fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)",
               letterSpacing: "-0.03em",
-              color: "#F5F7FA",
+              color: "#1A1A2E",
               lineHeight: 1.06,
             }}
           >
@@ -120,7 +120,7 @@ export function AuthoritySection() {
                 cardRefs.current[i] = el;
               }}
               data-ocid={point.ocid}
-              className="reveal-card glass-authority"
+              className="reveal-card card-earthy"
               style={{
                 padding: "clamp(1.5rem, 3vw, 2rem)",
                 transitionDelay: `${i * 130}ms`,
@@ -132,7 +132,7 @@ export function AuthoritySection() {
                   fontFamily: "'Playfair Display', Georgia, serif",
                   fontWeight: 700,
                   fontSize: "1.75rem",
-                  color: "rgba(58,134,255,0.25)",
+                  color: "rgba(221,161,94,0.3)",
                   lineHeight: 1,
                   marginBottom: "1.25rem",
                 }}
@@ -144,7 +144,7 @@ export function AuthoritySection() {
                 style={{
                   fontSize: "1.05rem",
                   fontWeight: 600,
-                  color: "#F5F7FA",
+                  color: "#1A1A2E",
                   letterSpacing: "-0.01em",
                   lineHeight: 1.3,
                   marginBottom: "0.5rem",
@@ -157,7 +157,7 @@ export function AuthoritySection() {
                   width: "20px",
                   height: "1.5px",
                   borderRadius: "2px",
-                  background: "rgba(58,134,255,0.35)",
+                  background: "rgba(221,161,94,0.4)",
                   marginBottom: "0.85rem",
                 }}
               />
@@ -166,7 +166,7 @@ export function AuthoritySection() {
                 style={{
                   fontSize: "0.875rem",
                   lineHeight: 1.7,
-                  color: "#B8C1EC",
+                  color: "rgba(26,26,46, 0.85)",
                 }}
               >
                 {point.description}

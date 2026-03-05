@@ -6,32 +6,32 @@ export function Footer() {
     <footer
       className="relative z-10 px-6 py-10 text-center"
       style={{
-        background: "rgba(13, 27, 42, 0.8)",
-        borderTop: "1px solid rgba(58, 134, 255, 0.08)",
+        background: "rgba(40, 54, 24, 0.8)",
+        borderTop: "1px solid rgba(254, 250, 224, 0.06)",
       }}
     >
       <p
         className="font-ui text-sm"
-        style={{ color: "rgba(184,193,236,0.45)", letterSpacing: "0.02em" }}
+        style={{ color: "rgba(254, 250, 224, 0.4)", letterSpacing: "0.02em" }}
       >
-        © {year}. Built with <span style={{ color: "#3A86FF" }}>♥</span> using{" "}
+        © {year}. Built with <span style={{ color: "#DDA15E" }}>♥</span> using{" "}
         <a
           href={utm}
           target="_blank"
           rel="noopener noreferrer"
           data-ocid="nav.link"
           style={{
-            color: "rgba(58, 134, 255, 0.75)",
+            color: "rgba(221, 161, 94, 0.75)",
             textDecoration: "underline",
             textUnderlineOffset: "3px",
             transition: "color 0.2s ease",
           }}
           onMouseEnter={(e) => {
-            (e.target as HTMLAnchorElement).style.color = "#3A86FF";
+            (e.target as HTMLAnchorElement).style.color = "#DDA15E";
           }}
           onMouseLeave={(e) => {
             (e.target as HTMLAnchorElement).style.color =
-              "rgba(58, 134, 255, 0.75)";
+              "rgba(221, 161, 94, 0.75)";
           }}
         >
           caffeine.ai

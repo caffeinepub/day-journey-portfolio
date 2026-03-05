@@ -85,21 +85,18 @@
     --color-evening-to: #D383FF;
     --color-night-from: #0D1B2A;
     --color-night-to: #1a2d4a;
-    --color-accent-blue: #3A86FF;
     --color-morning-text: #2d1f0e;
-    --color-day-text: #0a1a2e;
+    --color-day-text: #283618;
     --color-evening-text: #2a1505;
-    --color-night-text: #e8f0ff;
+    --color-night-text: #FEFAE0;
     --color-silhouette: #1a1a2e;
 
-    /* Professional color system */
-    --color-primary-dark: #0B132B;
-    --color-secondary-dark: #1C2541;
-    --color-accent-blue-pro: #3A86FF;
-    --color-soft-blue: #4F8CC9;
-    --color-heading: #F5F7FA;
-    --color-paragraph: #B8C1EC;
-    --color-border-subtle: rgba(255,255,255,0.08);
+    /* ─── Earthy professional color system ──────────────────────── */
+    --color-earth-dark: #283618;
+    --color-earth-olive: #606C38;
+    --color-earth-cream: #FEFAE0;
+    --color-earth-sand: #DDA15E;
+    --color-earth-orange: #BC6C25;
 
     /* ─── Motion curves ─────────────────────────────────────────── */
     /* Expo.Out — the Apple motion curve: decisive drop into rest */
@@ -159,12 +156,12 @@
   /* ─── Global input / textarea text color ───────────────────────── */
   input,
   textarea {
-    color: #F5F7FA;
+    color: #FEFAE0;
   }
 
   /* ─── Global placeholder color ─────────────────────────────────── */
   ::placeholder {
-    color: rgba(184, 193, 236, 0.6);
+    color: rgba(254, 250, 224, 0.6);
     opacity: 1;
   }
 }
@@ -187,18 +184,20 @@
     text-transform: uppercase;
   }
 
-  /* ─── Highlight word — clean blue underline, no glow ──────────── */
+  /* ─── Highlight word — earthy sand underline, no glow ─────────── */
   .highlight-word {
-    color: #3A86FF;
+    color: #DDA15E;
     text-decoration: underline;
-    text-decoration-color: rgba(58, 134, 255, 0.35);
+    text-decoration-color: rgba(221, 161, 94, 0.4);
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
   }
 
   /* ─── Semantic text color utilities ────────────────────────────── */
-  .text-secondary { color: rgba(184, 193, 236, 0.75); }
-  .text-muted-soft { color: rgba(184, 193, 236, 0.6); }
+  .text-secondary { color: rgba(254, 250, 224, 0.75); }
+  .text-muted-soft { color: rgba(254, 250, 224, 0.6); }
+  .text-paragraph { color: rgba(254, 250, 224, 0.85); }
+  .text-heading-night { color: #FEFAE0; }
 }
 
 /* ─── Walking Silhouette Animation ──────────────────────────────── */
@@ -237,12 +236,12 @@
 
 @keyframes float-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(58, 134, 255, 0.35),
-                0 0 60px rgba(58, 134, 255, 0.12);
+    box-shadow: 0 0 20px rgba(188, 108, 37, 0.35),
+                0 0 60px rgba(188, 108, 37, 0.12);
   }
   50% {
-    box-shadow: 0 0 38px rgba(58, 134, 255, 0.65),
-                0 0 90px rgba(58, 134, 255, 0.25);
+    box-shadow: 0 0 38px rgba(221, 161, 94, 0.65),
+                0 0 90px rgba(221, 161, 94, 0.25);
   }
 }
 
@@ -292,10 +291,8 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   FIX 3: Scroll-reveal — depth-rise with Expo.Out curve
+   Scroll-reveal — depth-rise with Expo.Out curve
    Cards start slightly scaled down (0.97) AND translated (50px)
-   to simulate rising from behind a plane, not just sliding up.
-   Stagger is baked in via CSS custom property.
    ───────────────────────────────────────────────────────────────── */
 .reveal-card {
   opacity: 0;
@@ -325,23 +322,20 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   FIX 2: Glass card — day section
-   Refined border: top-and-left bright, right-and-bottom dim.
-   Hover: rise + deepen shadow + widen highlight.
+   Glass card — day section (earthy)
+   Directional border: top/left catch warm light, right/bottom dim.
    ───────────────────────────────────────────────────────────────── */
 .glass-card {
-  background: rgba(255, 255, 255, 0.13);
-  backdrop-filter: blur(16px) saturate(1.4);
-  -webkit-backdrop-filter: blur(16px) saturate(1.4);
-  /* Directional border — top/left catch the light */
-  border-top:    1px solid rgba(255, 255, 255, 0.45);
-  border-left:   1px solid rgba(255, 255, 255, 0.35);
-  border-right:  1px solid rgba(255, 255, 255, 0.12);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(40, 54, 24, 0.85);
+  /* Directional border — top/left catch the warm light */
+  border-top:    1px solid rgba(254, 250, 224, 0.18);
+  border-left:   1px solid rgba(254, 250, 224, 0.18);
+  border-right:  1px solid rgba(254, 250, 224, 0.06);
+  border-bottom: 1px solid rgba(254, 250, 224, 0.06);
   box-shadow:
-    0 2px 8px  rgba(10, 26, 46, 0.04),
-    0 8px 32px rgba(10, 26, 46, 0.07),
-    inset 0 1px 0 rgba(255,255,255,0.22);
+    0 2px 8px  rgba(0, 0, 0, 0.12),
+    0 8px 32px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(254, 250, 224, 0.08);
   transition:
     transform 0.4s var(--ease-expo-out),
     box-shadow 0.4s var(--ease-expo-out),
@@ -350,28 +344,24 @@
 }
 
 .glass-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+  background: rgba(50, 66, 28, 0.9);
   box-shadow:
-    0 4px 16px  rgba(10, 26, 46, 0.06),
-    0 16px 48px rgba(10, 26, 46, 0.12),
-    0 24px 72px rgba(10, 26, 46, 0.08),
-    inset 0 1px 0 rgba(255,255,255,0.35);
+    0 4px 16px  rgba(0, 0, 0, 0.18),
+    0 16px 48px rgba(0, 0, 0, 0.32),
+    0 24px 72px rgba(0, 0, 0, 0.16),
+    inset 0 1px 0 rgba(254, 250, 224, 0.14);
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   FIX 2: Glass card — night section (dark)
-   Border animates from 15% to 35% blue opacity on hover.
-   Adds a top-edge luminosity line.
+   Glass card dark — night section (earthy)
    ───────────────────────────────────────────────────────────────── */
 .glass-card-dark {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(40, 54, 24, 0.85);
+  border: 1px solid rgba(254, 250, 224, 0.08);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(254, 250, 224, 0.04);
   transition:
     transform 0.4s var(--ease-expo-out),
     box-shadow 0.4s var(--ease-expo-out),
@@ -381,18 +371,36 @@
 }
 
 .glass-card-dark:hover {
-  transform: translateY(-5px) scale(1.015);
-  background: rgba(58, 134, 255, 0.06);
-  border-color: rgba(58, 134, 255, 0.25);
+  transform: translateY(-2px) scale(1.015);
+  background: rgba(50, 66, 28, 0.9);
+  border-color: rgba(221, 161, 94, 0.25);
   box-shadow:
-    0 8px 40px rgba(0, 0, 0, 0.4),
-    0 0 48px rgba(58, 134, 255, 0.07),
-    inset 0 1px 0 rgba(58, 134, 255, 0.18);
+    0 8px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(221, 161, 94, 0.1);
 }
 
-/* ─── Glow button ───────────────────────────────────────────────── */
+/* ─── Unified earthy card utility ───────────────────────────────── */
+.card-earthy {
+  background: rgba(40, 54, 24, 0.85);
+  border: 1px solid rgba(254, 250, 224, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.35s var(--ease-expo-out),
+    box-shadow 0.35s var(--ease-expo-out),
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+.card-earthy:hover {
+  transform: translateY(-2px);
+  background: rgba(50, 66, 28, 0.9);
+  border-color: rgba(221, 161, 94, 0.18);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+}
+
+/* ─── Glow button — earthy orange ───────────────────────────────── */
 .glow-btn {
-  box-shadow: 0 0 20px rgba(58, 134, 255, 0.25), 0 0 60px rgba(58, 134, 255, 0.08);
+  box-shadow: 0 0 20px rgba(188, 108, 37, 0.3), 0 0 60px rgba(188, 108, 37, 0.1);
   transition:
     transform 0.25s var(--ease-expo-out),
     box-shadow 0.25s var(--ease-expo-out);
@@ -400,11 +408,27 @@
 
 .glow-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(58, 134, 255, 0.45) !important;
+  box-shadow: 0 0 30px rgba(221, 161, 94, 0.5) !important;
 }
 
 .glow-btn:active {
   transform: translateY(-1px);
+}
+
+/* ─── Gradient text — earthy sand → orange ──────────────────────── */
+.gradient-text-earthy {
+  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Keep for any legacy references — now maps to earthy */
+.gradient-text-blue {
+  background: linear-gradient(135deg, #DDA15E 0%, #BC6C25 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ─── Sky layer utilities ───────────────────────────────────────── */
@@ -455,10 +479,9 @@
   /* Negative margin matches max card padding (1.75rem) precisely */
   margin: -1.75rem -1.75rem 1.5rem -1.75rem;
   position: relative;
-  /* Accent shimmer overlay rendered here instead of absolute card div */
   flex-shrink: 0;
 }
-/* Soft gradient scrim at bottom of image — eases image-to-text transition */
+/* Soft gradient scrim at bottom of image */
 .project-img-wrap::after {
   content: "";
   position: absolute;
@@ -466,7 +489,7 @@
   left: 0;
   right: 0;
   height: 56px;
-  background: linear-gradient(to bottom, transparent 0%, rgba(30, 14, 4, 0.38) 100%);
+  background: linear-gradient(to bottom, transparent 0%, rgba(20, 28, 10, 0.5) 100%);
   pointer-events: none;
 }
 .project-img-wrap:hover .project-img {
@@ -475,47 +498,40 @@
 
 /* ─── Project card legibility frost ─────────────────────────────── */
 .project-card-frost {
-  background: rgba(255, 248, 236, 0.10);
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  background: rgba(40, 54, 24, 0.85);
+  border: 1px solid rgba(254, 250, 224, 0.08);
 }
 
 /* ─── Section content legibility frost ──────────────────────────── */
-/* Applied to inner content wrappers — barely-there frost that lifts text
-   off the photographic sky without creating a visible box.
-   Light phases (morning, day) use a warm-white frost.
-   Dark phases (evening, night) use a deep-navy frost. */
 .section-frost-light {
-  background: rgba(255, 252, 245, 0.06);
+  background: rgba(254, 250, 224, 0.05);
   backdrop-filter: blur(10px) saturate(1.1);
   -webkit-backdrop-filter: blur(10px) saturate(1.1);
   border-radius: 24px;
-  /* Hairline border catches the light like frosted glass */
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(254, 250, 224, 0.10);
 }
 
 .section-frost-dark {
-  background: rgba(5, 12, 28, 0.14);
+  background: rgba(40, 54, 24, 0.15);
   backdrop-filter: blur(10px) saturate(1.15);
   -webkit-backdrop-filter: blur(10px) saturate(1.15);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(254, 250, 224, 0.04);
 }
 
 /* ─── Heading text shadow helpers ───────────────────────────────── */
-/* Light-phase headings (dark text on bright sky) — barely perceptible lift, no glow */
 .heading-shadow-warm {
-  text-shadow: 0 1px 8px rgba(45, 31, 14, 0.08);
+  text-shadow: 0 1px 8px rgba(40, 54, 24, 0.08);
 }
 
-/* Eyebrow legibility pill — subtle pill bg on photo backgrounds */
+/* ─── Eyebrow legibility pill ───────────────────────────────────── */
 .eyebrow-pill {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(40, 54, 24, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   padding: 4px 12px;
   border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(254, 250, 224, 0.15);
 }
 
 /* ─── Sticky project layout ─────────────────────────────────────── */
@@ -533,15 +549,6 @@
   }
 }
 
-/* ─── Gradient text ─────────────────────────────────────────────── */
-/* NOTE: duplicate rule below (blue-only, no purple) takes precedence */
-.gradient-text-blue-unused {
-  background: linear-gradient(135deg, #3A86FF, #a855f7);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 /* ─── Thin ruled divider ────────────────────────────────────────── */
 .ruled-divider {
   width: 100%;
@@ -549,8 +556,8 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.18) 30%,
-    rgba(255, 255, 255, 0.18) 70%,
+    rgba(254, 250, 224, 0.15) 30%,
+    rgba(254, 250, 224, 0.15) 70%,
     transparent 100%
   );
 }
@@ -585,6 +592,11 @@
   50% { opacity: calc(var(--star-opacity, 0.8) * 0.45); transform: scale(0.85); }
 }
 
+@keyframes star-twinkle {
+  0% { opacity: var(--star-base-op, 0.35); transform: scale(1); }
+  100% { opacity: calc(var(--star-base-op, 0.35) * 0.4); transform: scale(0.7); }
+}
+
 @keyframes shape-float {
   0%, 100% { transform: var(--shape-base-transform, translateY(0)); }
   50% { transform: var(--shape-float-transform, translateY(-12px)); }
@@ -595,11 +607,9 @@
   to { transform: rotate(360deg); }
 }
 
-/* cta-gradient-shift removed — replaced with static background */
-
 @keyframes moon-glow-pulse {
-  0%, 100% { filter: drop-shadow(0 0 16px rgba(120, 160, 255, 0.65)); }
-  50% { filter: drop-shadow(0 0 28px rgba(120, 160, 255, 0.95)); }
+  0%, 100% { filter: drop-shadow(0 0 16px rgba(221, 161, 94, 0.55)); }
+  50% { filter: drop-shadow(0 0 28px rgba(221, 161, 94, 0.85)); }
 }
 
 /* ─── Micro-interaction utilities ───────────────────────────────── */
@@ -637,19 +647,17 @@
   }
 }
 
-/* ─── Authority section glass ───────────────────────────────────── */
+/* ─── Authority section glass — earthy ─────────────────────────── */
 .glass-authority {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px) saturate(1.1);
-  -webkit-backdrop-filter: blur(12px) saturate(1.1);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(40, 54, 24, 0.85);
+  border: 1px solid rgba(254, 250, 224, 0.08);
   border-radius: 14px;
   transition: transform 0.35s var(--ease-expo-out), background 0.3s ease, border-color 0.3s ease;
 }
 .glass-authority:hover {
-  transform: translateY(-3px) scale(1.015);
-  background: rgba(58, 134, 255, 0.05);
-  border-color: rgba(58, 134, 255, 0.18);
+  transform: translateY(-2px) scale(1.015);
+  background: rgba(50, 66, 28, 0.9);
+  border-color: rgba(221, 161, 94, 0.2);
 }
 
 /* ─── Parallax landscape utility ────────────────────────────────── */
@@ -657,19 +665,20 @@
   filter: blur(0.8px);
 }
 
-/* ─── Text color utilities ──────────────────────────────────────── */
-.text-paragraph { color: #B8C1EC; }
-.text-heading-night { color: #F5F7FA; }
-
-/* ─── Gradient text — blue only (no purple) ─────────────────────── */
-.gradient-text-blue {
-  background: linear-gradient(135deg, #3A86FF 0%, #4F8CC9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ─── Grain / noise overlay for hero ────────────────────────────── */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  z-index: 1;
+  border-radius: inherit;
 }
 
-/* ─── Scrollbar customization ───────────────────────────────────── */
+/* ─── Scrollbar customization — earthy sand ─────────────────────── */
 ::-webkit-scrollbar {
   width: 3px;
 }
@@ -679,10 +688,10 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(58, 134, 255, 0.25);
+  background: rgba(221, 161, 94, 0.35);
   border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(58, 134, 255, 0.5);
+  background: rgba(221, 161, 94, 0.6);
 }

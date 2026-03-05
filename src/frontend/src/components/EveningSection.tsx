@@ -32,8 +32,8 @@ const PROJECTS: Project[] = [
       "WordPress development, custom UI system, performance-optimized build, structured SEO foundation with semantic HTML and metadata architecture.",
     impact:
       "Measurably reduced task completion time, improved appointment throughput, and established a scalable digital foundation for future feature expansion.",
-    accentColor: "#F9A826",
-    borderColor: "rgba(249, 168, 38, 0.35)",
+    accentColor: "#DDA15E",
+    borderColor: "rgba(221, 161, 94, 0.35)",
     ocid: "projects.item.1",
     imageUrl:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=75",
@@ -53,8 +53,8 @@ const PROJECTS: Project[] = [
       "WooCommerce Expert implementation — product variation systems, SEO-friendly product descriptions, image optimization, and custom conversion-focused layout structuring.",
     impact:
       "Significantly improved product page engagement, reduced cart abandonment, and positioned the brand correctly in the premium digital retail space.",
-    accentColor: "#E8956D",
-    borderColor: "rgba(232, 149, 109, 0.35)",
+    accentColor: "#BC6C25",
+    borderColor: "rgba(188, 108, 37, 0.35)",
     ocid: "projects.item.2",
     imageUrl:
       "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=75",
@@ -74,8 +74,8 @@ const PROJECTS: Project[] = [
       "UI/UX system design, custom booking interface components, mobile-first responsive architecture, and user testing-informed iteration.",
     impact:
       "Streamlined appointment management reduced average booking time and increased completed bookings through better UX clarity.",
-    accentColor: "#F9A826",
-    borderColor: "rgba(249, 168, 38, 0.35)",
+    accentColor: "#DDA15E",
+    borderColor: "rgba(221, 161, 94, 0.35)",
     ocid: "projects.item.3",
     imageUrl:
       "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=800&q=75",
@@ -95,8 +95,8 @@ const PROJECTS: Project[] = [
       "Full brand design, WordPress-powered website, structured content flow, responsive layout, and conversion-optimized page architecture.",
     impact:
       "Clear brand positioning, improved first-impression quality, and a digital presence that aligned the perceived brand value with the actual product.",
-    accentColor: "#C084FF",
-    borderColor: "rgba(192, 132, 255, 0.35)",
+    accentColor: "#DDA15E",
+    borderColor: "rgba(221, 161, 94, 0.35)",
     ocid: "projects.item.4",
     imageUrl:
       "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=75",
@@ -116,8 +116,8 @@ const PROJECTS: Project[] = [
       "Dashboard UI design, interface architecture, data display systems, and a scalable component structure for future integrations.",
     impact:
       "Centralized multi-unit property management, eliminated workflow fragmentation, and created an operational foundation built for scale.",
-    accentColor: "#A78BFA",
-    borderColor: "rgba(167, 139, 250, 0.35)",
+    accentColor: "#BC6C25",
+    borderColor: "rgba(188, 108, 37, 0.35)",
     ocid: "projects.item.5",
     imageUrl:
       "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=75",
@@ -137,8 +137,8 @@ const PROJECTS: Project[] = [
       "Website design, content hierarchy, responsive layout system, SEO structure, and performance-optimized WordPress build.",
     impact:
       "Elevated the agency's perceived authority, improved inbound lead quality, and created a platform that communicates expertise before a single conversation.",
-    accentColor: "#E8956D",
-    borderColor: "rgba(232, 149, 109, 0.35)",
+    accentColor: "#DDA15E",
+    borderColor: "rgba(221, 161, 94, 0.35)",
     ocid: "projects.item.6",
     imageUrl:
       "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=75",
@@ -172,10 +172,8 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       data-ocid={project.ocid}
       className="card-lift"
       style={{
-        background: "rgba(255,255,255,0.06)",
-        backdropFilter: "blur(14px) saturate(1.2)",
-        WebkitBackdropFilter: "blur(14px) saturate(1.2)",
-        border: `1px solid ${project.borderColor.replace(/[\d.]+\)$/, "0.2)")}`,
+        background: "rgba(40,54,24,0.85)",
+        border: "1px solid rgba(26,26,46,0.08)",
         borderRadius: "14px",
         padding: "1.75rem",
         opacity: visible ? 1 : 0,
@@ -183,8 +181,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         transition: `opacity 0.55s ease ${index * 0.07}s, transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94) ${index * 0.07}s`,
         position: "relative",
         overflow: "hidden",
-        boxShadow:
-          "0 4px 24px rgba(0, 0, 20, 0.2), 0 1px 4px rgba(0, 0, 20, 0.1)",
+        boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
       }}
     >
       {/* Project image — accent line sits on top of image via z-index */}
@@ -252,7 +249,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           fontFamily: "'Playfair Display', Georgia, serif",
           fontWeight: 700,
           fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)",
-          color: "#F5F7FA",
+          color: "#1A1A2E",
           letterSpacing: "-0.02em",
           lineHeight: 1.15,
           marginBottom: "0.25rem",
@@ -264,7 +261,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         style={{
           fontSize: "0.78rem",
           fontWeight: 500,
-          color: "rgba(184,193,236,0.65)",
+          color: "rgba(26,26,46,0.65)",
           marginBottom: "1.1rem",
           letterSpacing: "0.02em",
         }}
@@ -301,7 +298,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
             <p
               style={{
                 fontSize: "0.82rem",
-                color: "rgba(184,193,236,0.82)",
+                color: "rgba(26,26,46,0.82)",
                 lineHeight: 1.65,
                 margin: 0,
               }}
@@ -336,8 +333,10 @@ export function EveningSection() {
           <span
             className="eyebrow eyebrow-pill inline-block"
             style={{
-              color: "rgba(184,193,236,0.75)",
+              color: "rgba(26,26,46,0.75)",
               marginBottom: "1rem",
+              background: "rgba(40,54,24,0.5)",
+              borderColor: "rgba(26,26,46,0.12)",
             }}
           >
             Evening — Proof
@@ -347,10 +346,11 @@ export function EveningSection() {
               fontFamily: "'Playfair Display', Georgia, serif",
               fontWeight: 700,
               fontSize: "clamp(1.9rem, 4.5vw, 3.8rem)",
-              letterSpacing: "-0.03em",
-              color: "#F5F7FA",
+              letterSpacing: "0.5px",
+              color: "#1A1A2E",
               lineHeight: 1.04,
               marginBottom: "0.6rem",
+              opacity: 1,
             }}
           >
             Six Projects. Measurable Impact.
@@ -358,9 +358,10 @@ export function EveningSection() {
           <p
             style={{
               fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)",
-              color: "#B8C1EC",
-              fontWeight: 400,
-              letterSpacing: "0.01em",
+              color: "rgba(26,26,46,0.85)",
+              fontWeight: 600,
+              letterSpacing: "0.5px",
+              opacity: 1,
             }}
           >
             Designed. Engineered. Optimized for growth.

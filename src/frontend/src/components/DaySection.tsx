@@ -114,7 +114,7 @@ export function DaySection() {
           {/* Frost pill for eyebrow on bright day sky */}
           <span
             className="eyebrow eyebrow-pill inline-block mb-6"
-            style={{ color: "rgba(10, 26, 46, 0.7)" }}
+            style={{ color: "rgba(40, 54, 24, 0.7)" }}
           >
             Day — Capability
           </span>
@@ -123,7 +123,7 @@ export function DaySection() {
             style={{
               fontSize: "clamp(2rem, 5vw, 4.2rem)",
               letterSpacing: "-0.03em",
-              color: "#0a1a2e",
+              color: "#283618",
               lineHeight: 1.04,
             }}
           >
@@ -132,7 +132,7 @@ export function DaySection() {
             <em
               style={{
                 fontStyle: "italic",
-                color: "rgba(10, 26, 46, 0.6)",
+                color: "rgba(40, 54, 24, 0.6)",
               }}
             >
               One System.
@@ -154,7 +154,7 @@ export function DaySection() {
                 cardRefs.current[i] = el;
               }}
               data-ocid={skill.ocid}
-              className="reveal-card glass-card rounded-2xl p-8 cursor-default"
+              className="reveal-card card-earthy rounded-2xl p-8 cursor-default"
               style={{
                 transitionDelay: `${STAGGER_BASE_MS + i * STAGGER_INC_MS}ms`,
               }}
@@ -164,7 +164,7 @@ export function DaySection() {
                 style={{
                   fontSize: "1.75rem",
                   lineHeight: 1,
-                  color: "#0a1a2e",
+                  color: "#1A1A2E",
                   opacity: 0.8,
                   marginBottom: "1.75rem",
                 }}
@@ -178,7 +178,7 @@ export function DaySection() {
                 style={{
                   fontSize: "1.1rem",
                   fontWeight: 600,
-                  color: "#0a1a2e",
+                  color: "#1A1A2E",
                   letterSpacing: "-0.015em",
                   lineHeight: 1.2,
                   marginBottom: "0.6rem",
@@ -187,13 +187,13 @@ export function DaySection() {
                 {skill.name}
               </h3>
 
-              {/* Thin separator */}
+              {/* Thin separator — earthy sand */}
               <div
                 style={{
                   width: "24px",
                   height: "1.5px",
                   borderRadius: "2px",
-                  background: "rgba(10, 26, 46, 0.2)",
+                  background: "rgba(221, 161, 94, 0.5)",
                   marginBottom: "0.8rem",
                 }}
               />
@@ -204,7 +204,7 @@ export function DaySection() {
                 style={{
                   fontSize: "0.875rem",
                   lineHeight: 1.7,
-                  color: "rgba(10, 26, 46, 0.62)",
+                  color: "rgba(26,26,46, 0.75)",
                 }}
               >
                 {skill.description}

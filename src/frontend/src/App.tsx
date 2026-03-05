@@ -49,10 +49,10 @@ function getNightOpacity(p: number): number {
 // ─── Atmospheric overlay color ─────────────────────────────────────
 // 4 phase colors: [r, g, b, a]
 const OVERLAY_COLORS: [number, number, number, number][] = [
-  [255, 200, 100, 0.12], // morning: warm golden wash
-  [200, 230, 255, 0.08], // day: cool-blue haze
-  [180, 80, 30, 0.14], // evening: amber-mauve warm wash
-  [5, 10, 30, 0.35], // night: deep navy darkening
+  [254, 250, 224, 0.08], // morning: soft cream wash
+  [96, 108, 56, 0.07], // day: olive haze
+  [188, 108, 37, 0.12], // evening: amber-orange warm wash
+  [40, 54, 24, 0.5], // night: deep forest darkening
 ];
 
 function getAtmosOverlay(p: number): string {

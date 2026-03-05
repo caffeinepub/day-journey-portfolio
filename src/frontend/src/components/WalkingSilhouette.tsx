@@ -25,10 +25,10 @@ function getShadowFilter(phase: Phase, ctaProgress: number): string {
     case "evening":
       return "drop-shadow(8px 10px 8px rgba(200, 100, 30, 0.4))";
     case "night": {
-      // Smoothly intensify the halo as the character approaches the viewer
-      const glowRadius = 12 + ctaProgress * 20;
-      const glowAlpha = 0.6 + ctaProgress * 0.4;
-      return `drop-shadow(0 0 ${glowRadius.toFixed(1)}px rgba(58, 134, 255, ${glowAlpha.toFixed(2)})) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5))`;
+      // Calm moonlit rim light — capped for a focused, non-spooky feel
+      const glowRadius = Math.min(8 + ctaProgress * 8, 16);
+      const glowAlpha = Math.min(0.25 + ctaProgress * 0.2, 0.45);
+      return `drop-shadow(0 0 ${glowRadius.toFixed(1)}px rgba(221, 161, 94, ${glowAlpha.toFixed(2)})) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5))`;
     }
     default:
       return "drop-shadow(0 6px 6px rgba(0, 0, 0, 0.2))";

@@ -73,11 +73,11 @@ export function CTASection() {
 
   const inputStyle: React.CSSProperties = {
     width: "100%",
-    background: "rgba(255, 255, 255, 0.03)",
-    border: "1px solid rgba(255,255,255,0.08)",
+    background: "rgba(40,54,24,0.7)",
+    border: "1px solid rgba(26,26,46,0.12)",
     borderRadius: "10px",
     padding: "14px 18px",
-    color: "#F5F7FA",
+    color: "#1A1A2E",
     fontSize: "0.95rem",
     fontFamily: "Satoshi, Cabinet Grotesk, system-ui, sans-serif",
     outline: "none",
@@ -91,7 +91,7 @@ export function CTASection() {
     fontWeight: 600,
     letterSpacing: "0.15em",
     textTransform: "uppercase" as const,
-    color: "rgba(184,193,236,0.75)",
+    color: "rgba(26,26,46,0.7)",
     fontFamily: "Cabinet Grotesk, Satoshi, system-ui, sans-serif",
   };
 
@@ -121,7 +121,7 @@ export function CTASection() {
           height: "400px",
           borderRadius: "50%",
           background:
-            "radial-gradient(ellipse, rgba(58, 134, 255, 0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse, rgba(188, 108, 37, 0.08) 0%, transparent 70%)",
           filter: "blur(50px)",
           pointerEvents: "none",
           zIndex: 0,
@@ -133,8 +133,8 @@ export function CTASection() {
         ref={contentRef}
         className="reveal-card max-w-2xl mx-auto relative z-10"
         style={{
-          background: "rgba(255,255,255,0.03)",
-          border: "1px solid rgba(255,255,255,0.08)",
+          background: "rgba(40,54,24,0.7)",
+          border: "1px solid rgba(26,26,46,0.08)",
           borderRadius: "16px",
           padding: "clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem)",
         }}
@@ -143,21 +143,21 @@ export function CTASection() {
         <span
           className="eyebrow eyebrow-pill inline-block mb-8"
           style={{
-            color: "rgba(184,193,236,0.85)",
-            background: "rgba(58, 134, 255, 0.12)",
-            borderColor: "rgba(58, 134, 255, 0.2)",
+            color: "rgba(26,26,46,0.85)",
+            background: "rgba(40, 54, 24, 0.5)",
+            borderColor: "rgba(221, 161, 94, 0.2)",
           }}
         >
           Let's Work Together
         </span>
 
-        {/* Headline — clean, no gradient */}
+        {/* Headline — clean, earthy */}
         <h2
           className="font-display font-bold"
           style={{
             fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
             letterSpacing: "-0.03em",
-            color: "#F5F7FA",
+            color: "#1A1A2E",
             lineHeight: 1.04,
             marginBottom: "1rem",
           }}
@@ -172,7 +172,7 @@ export function CTASection() {
           style={{
             fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
             lineHeight: 1.7,
-            color: "#B8C1EC",
+            color: "rgba(26,26,46, 0.85)",
             fontWeight: 400,
             marginBottom: "clamp(2.5rem, 5vh, 4rem)",
           }}
@@ -199,12 +199,12 @@ export function CTASection() {
                 data-ocid="cta.input"
                 style={inputStyle}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.45)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.borderColor = "rgba(221, 161, 94, 0.6)";
+                  e.target.style.background = "rgba(50, 66, 28, 0.8)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.target.style.borderColor = "rgba(26,26,46,0.12)";
+                  e.target.style.background = "rgba(40,54,24,0.7)";
                 }}
               />
             </div>
@@ -224,12 +224,12 @@ export function CTASection() {
                 data-ocid="cta.email_input"
                 style={inputStyle}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.45)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.borderColor = "rgba(221, 161, 94, 0.6)";
+                  e.target.style.background = "rgba(50, 66, 28, 0.8)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.target.style.borderColor = "rgba(26,26,46,0.12)";
+                  e.target.style.background = "rgba(40,54,24,0.7)";
                 }}
               />
             </div>
@@ -253,12 +253,12 @@ export function CTASection() {
                   minHeight: "140px",
                 }}
                 onFocus={(e) => {
-                  e.target.style.borderColor = "rgba(58, 134, 255, 0.45)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.05)";
+                  e.target.style.borderColor = "rgba(221, 161, 94, 0.6)";
+                  e.target.style.background = "rgba(50, 66, 28, 0.8)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(255,255,255,0.08)";
-                  e.target.style.background = "rgba(255, 255, 255, 0.03)";
+                  e.target.style.borderColor = "rgba(26,26,46,0.12)";
+                  e.target.style.background = "rgba(40,54,24,0.7)";
                 }}
               />
             </div>
@@ -288,16 +288,18 @@ export function CTASection() {
               type="submit"
               disabled={isDisabled}
               data-ocid="cta.submit_button"
-              className="glow-btn btn-lift w-full flex items-center justify-center gap-3 rounded-xl font-ui font-semibold"
+              className="btn-lift w-full flex items-center justify-center gap-3 rounded-xl font-ui font-semibold"
               style={{
                 padding: "16px 32px",
                 fontSize: "1rem",
                 letterSpacing: "0.02em",
-                color: "#fff",
-                background: "#3A86FF",
+                color: "#1A1A2E",
+                background: "#BC6C25",
                 border: "none",
                 cursor: isDisabled ? "not-allowed" : "pointer",
                 opacity: isDisabled ? 0.5 : 1,
+                boxShadow:
+                  "0 0 20px rgba(188,108,37,0.25), 0 0 60px rgba(188,108,37,0.08)",
               }}
             >
               {isLoading ? (
@@ -323,23 +325,23 @@ export function CTASection() {
             data-ocid="cta.success_state"
             className="text-center py-16 flex flex-col items-center gap-6"
             style={{
-              background: "rgba(58, 134, 255, 0.05)",
-              border: "1px solid rgba(58, 134, 255, 0.15)",
+              background: "rgba(40, 54, 24, 0.5)",
+              border: "1px solid rgba(221, 161, 94, 0.2)",
               borderRadius: "16px",
               padding: "3rem 2rem",
             }}
           >
-            <CheckCircle size={48} style={{ color: "#3A86FF" }} />
+            <CheckCircle size={48} style={{ color: "#DDA15E" }} />
             <div>
               <h3
                 className="font-display font-bold mb-3"
-                style={{ fontSize: "1.5rem", color: "#F5F7FA" }}
+                style={{ fontSize: "1.5rem", color: "#1A1A2E" }}
               >
                 Message Received
               </h3>
               <p
                 className="font-ui text-base leading-relaxed"
-                style={{ color: "#B8C1EC" }}
+                style={{ color: "rgba(26,26,46, 0.85)" }}
               >
                 Thank you for reaching out. I review every inquiry personally
                 and will respond within 24 hours.
@@ -350,7 +352,7 @@ export function CTASection() {
               onClick={() => setFormStatus("idle")}
               className="font-ui text-sm link-underline"
               style={{
-                color: "rgba(58, 134, 255, 0.85)",
+                color: "rgba(221, 161, 94, 0.85)",
                 background: "none",
                 border: "none",
                 cursor: "pointer",

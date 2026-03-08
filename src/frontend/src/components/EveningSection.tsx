@@ -149,6 +149,7 @@ const PROJECTS: Project[] = [
 function ProjectCard({ project, index }: { project: Project; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const el = cardRef.current;
@@ -166,147 +167,203 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     return () => observer.disconnect();
   }, []);
 
+  const delay = `${index * 0.07}s`;
+
   return (
     <div
       ref={cardRef}
       data-ocid={project.ocid}
-      className="card-lift"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
       style={{
-        background: "rgba(40,54,24,0.85)",
-        border: "1px solid rgba(26,26,46,0.08)",
-        borderRadius: "14px",
-        padding: "1.75rem",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(24px)",
-        transition: `opacity 0.55s ease ${index * 0.07}s, transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94) ${index * 0.07}s`,
-        position: "relative",
+        background: "rgb(40, 54, 24)",
+        border: "1px solid rgba(254,250,224,0.12)",
+        borderRadius: "18px",
         overflow: "hidden",
-        boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
+        padding: 0,
+        opacity: visible ? 1 : 0,
+        transform: visible
+          ? hovered
+            ? "translateY(-4px)"
+            : "translateY(0)"
+          : "translateY(24px)",
+        boxShadow: hovered
+          ? "0 20px 50px rgba(0,0,0,0.5)"
+          : "0 12px 30px rgba(0,0,0,0.35)",
+        transition: `opacity 0.55s ease ${delay}, transform 0.55s cubic-bezier(0.25,0.46,0.45,0.94) ${delay}, box-shadow 0.3s ease`,
+        position: "relative",
+        display: "flex",
+        flexDirection: "column",
       }}
     >
-      {/* Project image — accent line sits on top of image via z-index */}
-      <div className="project-img-wrap" style={{ position: "relative" }}>
+      {/* ── Image area ── */}
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: "200px",
+          overflow: "hidden",
+          flexShrink: 0,
+        }}
+      >
         <img
           src={project.imageUrl}
           alt={project.imageAlt}
-          className="project-img"
           loading="lazy"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            transition: "transform 0.4s ease",
+            transform: hovered ? "scale(1.03)" : "scale(1)",
+          }}
         />
-        {/* Accent line rendered inside the wrap so it's above the image */}
+        {/* Bottom gradient overlay — separates image from text */}
         <div
           style={{
             position: "absolute",
-            top: 0,
+            bottom: 0,
             left: 0,
             right: 0,
-            height: "3px",
-            background: `linear-gradient(90deg, ${project.accentColor} 0%, ${project.accentColor}44 60%, transparent 100%)`,
-            zIndex: 2,
+            height: "80px",
+            background:
+              "linear-gradient(to bottom, transparent, rgba(40,54,24,0.95))",
+            pointerEvents: "none",
           }}
         />
       </div>
 
-      {/* Number + Industry row */}
+      {/* ── Content area ── */}
       <div
         style={{
+          padding: "1.75rem 1.75rem 2rem",
           display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          marginBottom: "0.75rem",
+          flexDirection: "column",
+          flexGrow: 1,
         }}
       >
-        <span
+        {/* Number + Industry tag row */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginBottom: "0.85rem",
+          }}
+        >
+          <span
+            style={{
+              fontSize: "0.7rem",
+              fontWeight: 600,
+              letterSpacing: "0.15em",
+              textTransform: "uppercase" as const,
+              color: "rgba(254,250,224,0.45)",
+              lineHeight: 1,
+            }}
+          >
+            {project.number}
+          </span>
+          <span
+            style={{
+              fontSize: "0.6rem",
+              fontWeight: 600,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase" as const,
+              color: "#DDA15E",
+              background: "rgba(221,161,94,0.1)",
+              padding: "3px 10px",
+              borderRadius: "20px",
+              border: "1px solid rgba(221,161,94,0.25)",
+            }}
+          >
+            {project.industry}
+          </span>
+        </div>
+
+        {/* Project name */}
+        <h3
           style={{
             fontFamily: "'Playfair Display', Georgia, serif",
             fontWeight: 700,
-            fontSize: "1.5rem",
-            color: `${project.accentColor}44`,
-            lineHeight: 1,
+            fontSize: "clamp(1.2rem, 2.5vw, 1.55rem)",
+            color: "rgb(254,250,224)",
+            letterSpacing: "-0.02em",
+            lineHeight: 1.15,
+            marginBottom: "0.35rem",
+            margin: "0 0 0.35rem",
           }}
         >
-          {project.number}
-        </span>
-        <span
+          {project.name}
+        </h3>
+
+        {/* Project subtitle */}
+        <p
           style={{
-            fontSize: "0.62rem",
-            fontWeight: 600,
-            letterSpacing: "0.12em",
-            textTransform: "uppercase",
-            color: project.accentColor,
-            background: `${project.accentColor}15`,
-            padding: "3px 10px",
-            borderRadius: "20px",
-            border: `1px solid ${project.accentColor}30`,
+            fontSize: "0.8rem",
+            fontWeight: 500,
+            color: "rgba(254,250,224,0.75)",
+            marginBottom: "1.5rem",
+            letterSpacing: "0.02em",
+            margin: "0 0 1.5rem",
           }}
         >
-          {project.industry}
-        </span>
-      </div>
+          {project.subtitle}
+        </p>
 
-      {/* Project name */}
-      <h3
-        style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
-          fontWeight: 700,
-          fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)",
-          color: "#1A1A2E",
-          letterSpacing: "-0.02em",
-          lineHeight: 1.15,
-          marginBottom: "0.25rem",
-        }}
-      >
-        {project.name}
-      </h3>
-      <p
-        style={{
-          fontSize: "0.78rem",
-          fontWeight: 500,
-          color: "rgba(26,26,46,0.65)",
-          marginBottom: "1.1rem",
-          letterSpacing: "0.02em",
-        }}
-      >
-        {project.subtitle}
-      </p>
+        {/* Separator */}
+        <div
+          style={{
+            height: "1px",
+            background: "rgba(254,250,224,0.08)",
+            marginBottom: "1.25rem",
+            flexShrink: 0,
+          }}
+        />
 
-      {/* Case study rows */}
-      <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
-        {[
-          { label: "Challenge", value: project.challenge },
-          { label: "Strategy", value: project.strategy },
-          { label: "Execution", value: project.execution },
-          { label: "Impact", value: project.impact },
-        ].map(({ label, value }) => (
-          <div
-            key={label}
-            style={{ display: "flex", gap: "0.5rem", alignItems: "flex-start" }}
-          >
-            <span
+        {/* Case study rows */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+          {[
+            { label: "Challenge", value: project.challenge },
+            { label: "Strategy", value: project.strategy },
+            { label: "Execution", value: project.execution },
+            { label: "Impact", value: project.impact },
+          ].map(({ label, value }) => (
+            <div
+              key={label}
               style={{
-                flexShrink: 0,
-                fontSize: "0.6rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: project.accentColor,
-                paddingTop: "2px",
-                minWidth: "62px",
+                display: "flex",
+                gap: "0.75rem",
+                alignItems: "flex-start",
               }}
             >
-              {label}
-            </span>
-            <p
-              style={{
-                fontSize: "0.82rem",
-                color: "rgba(26,26,46,0.82)",
-                lineHeight: 1.65,
-                margin: 0,
-              }}
-            >
-              {value}
-            </p>
-          </div>
-        ))}
+              <span
+                style={{
+                  flexShrink: 0,
+                  fontSize: "0.62rem",
+                  fontWeight: 700,
+                  letterSpacing: "1px",
+                  textTransform: "uppercase" as const,
+                  color: "#DDA15E",
+                  paddingTop: "3px",
+                  minWidth: "72px",
+                }}
+              >
+                {label}
+              </span>
+              <p
+                style={{
+                  fontSize: "0.84rem",
+                  color: "rgba(254,250,224,0.85)",
+                  lineHeight: 1.7,
+                  margin: 0,
+                }}
+              >
+                {value}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -333,10 +390,10 @@ export function EveningSection() {
           <span
             className="eyebrow eyebrow-pill inline-block"
             style={{
-              color: "rgba(26,26,46,0.75)",
+              color: "rgba(254, 250, 224, 0.75)",
               marginBottom: "1rem",
               background: "rgba(40,54,24,0.5)",
-              borderColor: "rgba(26,26,46,0.12)",
+              borderColor: "rgba(254,250,224,0.12)",
             }}
           >
             Evening — Proof
@@ -347,7 +404,7 @@ export function EveningSection() {
               fontWeight: 700,
               fontSize: "clamp(1.9rem, 4.5vw, 3.8rem)",
               letterSpacing: "0.5px",
-              color: "#1A1A2E",
+              color: "rgb(254, 250, 224)",
               lineHeight: 1.04,
               marginBottom: "0.6rem",
               opacity: 1,
@@ -358,7 +415,7 @@ export function EveningSection() {
           <p
             style={{
               fontSize: "clamp(0.9rem, 1.5vw, 1.05rem)",
-              color: "rgba(26,26,46,0.85)",
+              color: "rgba(254, 250, 224, 0.85)",
               fontWeight: 600,
               letterSpacing: "0.5px",
               opacity: 1,

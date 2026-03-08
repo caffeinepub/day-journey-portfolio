@@ -84,7 +84,7 @@ export function AuthoritySection() {
           <span
             className="eyebrow eyebrow-pill inline-block mb-6"
             style={{
-              color: "rgba(26,26,46,0.8)",
+              color: "rgba(254, 250, 224, 0.8)",
               background: "rgba(40,54,24,0.5)",
               borderColor: "rgba(221,161,94,0.18)",
             }}
@@ -96,7 +96,7 @@ export function AuthoritySection() {
             style={{
               fontSize: "clamp(1.8rem, 4.5vw, 3.5rem)",
               letterSpacing: "-0.03em",
-              color: "#1A1A2E",
+              color: "rgb(254, 250, 224)",
               lineHeight: 1.06,
             }}
           >
@@ -144,7 +144,7 @@ export function AuthoritySection() {
                 style={{
                   fontSize: "1.05rem",
                   fontWeight: 600,
-                  color: "#1A1A2E",
+                  color: "rgb(254, 250, 224)",
                   letterSpacing: "-0.01em",
                   lineHeight: 1.3,
                   marginBottom: "0.5rem",
@@ -166,7 +166,7 @@ export function AuthoritySection() {
                 style={{
                   fontSize: "0.875rem",
                   lineHeight: 1.7,
-                  color: "rgba(26,26,46, 0.85)",
+                  color: "rgba(254, 250, 224, 0.85)",
                 }}
               >
                 {point.description}

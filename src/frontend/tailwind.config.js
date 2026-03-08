@@ -19,6 +19,7 @@ export default {
         display: ["Playfair Display", "Georgia", "serif"],
         ui: ["Satoshi", "Cabinet Grotesk", "system-ui", "sans-serif"],
         sans: ["Satoshi", "Cabinet Grotesk", "system-ui", "sans-serif"],
+        mono: ["Geist Mono", "JetBrains Mono", "monospace"],
       },
       colors: {
         border: "oklch(var(--border))",
@@ -71,28 +72,16 @@ export default {
           border: "oklch(var(--sidebar-border))",
           ring: "oklch(var(--sidebar-ring))",
         },
-        // Portfolio day cycle colors
-        morning: {
-          from: "#FFD9A0",
-          to: "#BFD7EA",
-          text: "#2d1f0e",
+        // Developer portfolio tokens
+        dev: {
+          bg: "#0f172a",
+          card: "#1e293b",
+          primary: "#2563eb",
+          accent: "#38bdf8",
+          text: "#f8fafc",
+          muted: "#94a3b8",
+          border: "#334155",
         },
-        day: {
-          from: "#A3D5FF",
-          to: "#EAF6FF",
-          text: "#0a1a2e",
-        },
-        evening: {
-          from: "#F9A826",
-          to: "#D383FF",
-          text: "#2a1505",
-        },
-        night: {
-          from: "#0D1B2A",
-          to: "#1a2d4a",
-          text: "#e8f0ff",
-        },
-        "accent-blue": "#3A86FF",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -103,10 +92,10 @@ export default {
       },
       boxShadow: {
         xs: "0 1px 2px 0 rgba(0,0,0,0.05)",
-        "glow-blue": "0 0 20px rgba(58, 134, 255, 0.4), 0 0 60px rgba(58, 134, 255, 0.15)",
-        "glow-blue-lg": "0 0 40px rgba(58, 134, 255, 0.7), 0 0 100px rgba(58, 134, 255, 0.3)",
-        "card-morning": "0 8px 32px rgba(45, 31, 14, 0.08)",
+        "glow-blue": "0 0 20px rgba(37, 99, 235, 0.4), 0 0 60px rgba(56, 189, 248, 0.15)",
+        "glow-blue-lg": "0 0 40px rgba(37, 99, 235, 0.7), 0 0 100px rgba(56, 189, 248, 0.3)",
         "card-dark": "0 8px 32px rgba(0, 0, 0, 0.3)",
+        "card-hover": "0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(37, 99, 235, 0.2)",
       },
       keyframes: {
         "accordion-down": {
@@ -117,15 +106,30 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "scroll-bounce": {
-          "0%, 100%": { transform: "translateY(0)", opacity: "1" },
-          "50%": { transform: "translateY(8px)", opacity: "0.5" },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(24px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% center" },
+          "100%": { backgroundPosition: "200% center" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 20px rgba(37,99,235,0.4), 0 0 40px rgba(56,189,248,0.15)" },
+          "50%": { boxShadow: "0 0 30px rgba(37,99,235,0.7), 0 0 60px rgba(56,189,248,0.3)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "scroll-bounce": "scroll-bounce 1.8s ease-in-out infinite",
+        "fade-up": "fade-up 0.6s ease forwards",
+        shimmer: "shimmer 2s linear infinite",
+        float: "float 3s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
       },
     },
   },

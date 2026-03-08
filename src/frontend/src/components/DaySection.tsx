@@ -114,7 +114,7 @@ export function DaySection() {
           {/* Frost pill for eyebrow on bright day sky */}
           <span
             className="eyebrow eyebrow-pill inline-block mb-6"
-            style={{ color: "rgba(40, 54, 24, 0.7)" }}
+            style={{ color: "rgba(254, 250, 224, 0.7)" }}
           >
             Day — Capability
           </span>
@@ -123,7 +123,7 @@ export function DaySection() {
             style={{
               fontSize: "clamp(2rem, 5vw, 4.2rem)",
               letterSpacing: "-0.03em",
-              color: "#283618",
+              color: "rgb(254, 250, 224)",
               lineHeight: 1.04,
             }}
           >
@@ -132,7 +132,7 @@ export function DaySection() {
             <em
               style={{
                 fontStyle: "italic",
-                color: "rgba(40, 54, 24, 0.6)",
+                color: "rgba(254, 250, 224, 0.6)",
               }}
             >
               One System.
@@ -164,8 +164,8 @@ export function DaySection() {
                 style={{
                   fontSize: "1.75rem",
                   lineHeight: 1,
-                  color: "#1A1A2E",
-                  opacity: 0.8,
+                  color: "rgba(254, 250, 224, 0.8)",
+                  opacity: 1,
                   marginBottom: "1.75rem",
                 }}
               >
@@ -178,7 +178,7 @@ export function DaySection() {
                 style={{
                   fontSize: "1.1rem",
                   fontWeight: 600,
-                  color: "#1A1A2E",
+                  color: "rgb(254, 250, 224)",
                   letterSpacing: "-0.015em",
                   lineHeight: 1.2,
                   marginBottom: "0.6rem",
@@ -204,7 +204,7 @@ export function DaySection() {
                 style={{
                   fontSize: "0.875rem",
                   lineHeight: 1.7,
-                  color: "rgba(26,26,46, 0.75)",
+                  color: "rgba(254, 250, 224, 0.85)",
                 }}
               >
                 {skill.description}

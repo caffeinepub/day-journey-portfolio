@@ -292,7 +292,7 @@ export function NightSection() {
         <span
           className="eyebrow eyebrow-pill inline-block mb-10"
           style={{
-            color: "rgba(26,26,46,0.85)",
+            color: "rgba(254, 250, 224, 0.85)",
             background: "rgba(40, 54, 24, 0.5)",
             borderColor: "rgba(221, 161, 94, 0.2)",
           }}
@@ -318,7 +318,7 @@ export function NightSection() {
                 style={{
                   fontSize: "clamp(2.2rem, 5.5vw, 4.8rem)",
                   letterSpacing: "0.5px",
-                  color: "#1A1A2E",
+                  color: "rgb(254, 250, 224)",
                   lineHeight: 1.04,
                   maxWidth: "820px",
                   fontWeight: 700,
@@ -345,7 +345,7 @@ export function NightSection() {
                   marginTop: "2rem",
                   fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
                   lineHeight: 1.7,
-                  color: "rgba(26,26,46,0.85)",
+                  color: "rgba(254, 250, 224, 0.85)",
                   maxWidth: "540px",
                   fontWeight: 400,
                 }}
@@ -440,7 +440,7 @@ export function NightSection() {
                 className="font-display font-semibold"
                 style={{
                   fontSize: "1.1rem",
-                  color: "#1A1A2E",
+                  color: "rgb(254, 250, 224)",
                   letterSpacing: "-0.01em",
                   lineHeight: 1.25,
                   marginBottom: "0.5rem",
@@ -466,7 +466,7 @@ export function NightSection() {
                 style={{
                   fontSize: "0.875rem",
                   lineHeight: 1.7,
-                  color: "rgba(26,26,46,0.85)",
+                  color: "rgba(254, 250, 224, 0.85)",
                 }}
               >
                 {card.description}
@@ -615,7 +615,7 @@ export function NightSection() {
                 width: `${star.size}px`,
                 height: `${star.size}px`,
                 borderRadius: "50%",
-                background: "#1A1A2E",
+                background: "rgb(254, 250, 224)",
                 opacity: star.opacity,
                 animation: `star-twinkle ${star.dur}s ease-in-out infinite alternate`,
                 animationDelay: `${star.delay}s`,

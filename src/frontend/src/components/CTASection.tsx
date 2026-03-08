@@ -74,10 +74,10 @@ export function CTASection() {
   const inputStyle: React.CSSProperties = {
     width: "100%",
     background: "rgba(40,54,24,0.7)",
-    border: "1px solid rgba(26,26,46,0.12)",
+    border: "1px solid rgba(254,250,224,0.15)",
     borderRadius: "10px",
     padding: "14px 18px",
-    color: "#1A1A2E",
+    color: "rgb(254, 250, 224)",
     fontSize: "0.95rem",
     fontFamily: "Satoshi, Cabinet Grotesk, system-ui, sans-serif",
     outline: "none",
@@ -91,7 +91,7 @@ export function CTASection() {
     fontWeight: 600,
     letterSpacing: "0.15em",
     textTransform: "uppercase" as const,
-    color: "rgba(26,26,46,0.7)",
+    color: "rgba(254, 250, 224, 0.7)",
     fontFamily: "Cabinet Grotesk, Satoshi, system-ui, sans-serif",
   };
 
@@ -134,7 +134,7 @@ export function CTASection() {
         className="reveal-card max-w-2xl mx-auto relative z-10"
         style={{
           background: "rgba(40,54,24,0.7)",
-          border: "1px solid rgba(26,26,46,0.08)",
+          border: "1px solid rgba(254,250,224,0.08)",
           borderRadius: "16px",
           padding: "clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 4rem)",
         }}
@@ -143,7 +143,7 @@ export function CTASection() {
         <span
           className="eyebrow eyebrow-pill inline-block mb-8"
           style={{
-            color: "rgba(26,26,46,0.85)",
+            color: "rgba(254, 250, 224, 0.85)",
             background: "rgba(40, 54, 24, 0.5)",
             borderColor: "rgba(221, 161, 94, 0.2)",
           }}
@@ -157,7 +157,7 @@ export function CTASection() {
           style={{
             fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
             letterSpacing: "-0.03em",
-            color: "#1A1A2E",
+            color: "rgb(254, 250, 224)",
             lineHeight: 1.04,
             marginBottom: "1rem",
           }}
@@ -172,7 +172,7 @@ export function CTASection() {
           style={{
             fontSize: "clamp(1rem, 1.6vw, 1.15rem)",
             lineHeight: 1.7,
-            color: "rgba(26,26,46, 0.85)",
+            color: "rgba(254, 250, 224, 0.85)",
             fontWeight: 400,
             marginBottom: "clamp(2.5rem, 5vh, 4rem)",
           }}
@@ -203,7 +203,7 @@ export function CTASection() {
                   e.target.style.background = "rgba(50, 66, 28, 0.8)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(26,26,46,0.12)";
+                  e.target.style.borderColor = "rgba(254,250,224,0.15)";
                   e.target.style.background = "rgba(40,54,24,0.7)";
                 }}
               />
@@ -221,14 +221,14 @@ export function CTASection() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="jane@company.com"
                 required
-                data-ocid="cta.email_input"
+                data-ocid="cta.input"
                 style={inputStyle}
                 onFocus={(e) => {
                   e.target.style.borderColor = "rgba(221, 161, 94, 0.6)";
                   e.target.style.background = "rgba(50, 66, 28, 0.8)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(26,26,46,0.12)";
+                  e.target.style.borderColor = "rgba(254,250,224,0.15)";
                   e.target.style.background = "rgba(40,54,24,0.7)";
                 }}
               />
@@ -257,7 +257,7 @@ export function CTASection() {
                   e.target.style.background = "rgba(50, 66, 28, 0.8)";
                 }}
                 onBlur={(e) => {
-                  e.target.style.borderColor = "rgba(26,26,46,0.12)";
+                  e.target.style.borderColor = "rgba(254,250,224,0.15)";
                   e.target.style.background = "rgba(40,54,24,0.7)";
                 }}
               />
@@ -293,13 +293,13 @@ export function CTASection() {
                 padding: "16px 32px",
                 fontSize: "1rem",
                 letterSpacing: "0.02em",
-                color: "#1A1A2E",
-                background: "#BC6C25",
+                color: "rgb(40, 54, 24)",
+                background: "rgb(254, 250, 224)",
                 border: "none",
                 cursor: isDisabled ? "not-allowed" : "pointer",
                 opacity: isDisabled ? 0.5 : 1,
                 boxShadow:
-                  "0 0 20px rgba(188,108,37,0.25), 0 0 60px rgba(188,108,37,0.08)",
+                  "0 0 20px rgba(254,250,224,0.15), 0 0 60px rgba(254,250,224,0.05)",
               }}
             >
               {isLoading ? (
@@ -335,13 +335,13 @@ export function CTASection() {
             <div>
               <h3
                 className="font-display font-bold mb-3"
-                style={{ fontSize: "1.5rem", color: "#1A1A2E" }}
+                style={{ fontSize: "1.5rem", color: "rgb(254, 250, 224)" }}
               >
                 Message Received
               </h3>
               <p
                 className="font-ui text-base leading-relaxed"
-                style={{ color: "rgba(26,26,46, 0.85)" }}
+                style={{ color: "rgba(254, 250, 224, 0.85)" }}
               >
                 Thank you for reaching out. I review every inquiry personally
                 and will respond within 24 hours.
